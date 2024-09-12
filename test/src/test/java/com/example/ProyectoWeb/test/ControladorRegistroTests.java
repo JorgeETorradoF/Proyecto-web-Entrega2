@@ -1,10 +1,10 @@
 package com.example.ProyectoWeb.test;
 
-import com.example.ProyectoWeb.entrega1.dto.RegistroDTO;
-import com.example.ProyectoWeb.entrega1.exception.CamposInvalidosException;
-import com.example.ProyectoWeb.entrega1.exception.CorreoRegistradoException;
-import com.example.ProyectoWeb.entrega1.model.Usuario;
-import com.example.ProyectoWeb.entrega1.service.ServicioRegistro;
+import com.example.ProyectoWeb.dto.RegistroDTO;
+import com.example.ProyectoWeb.exception.CamposInvalidosException;
+import com.example.ProyectoWeb.exception.CorreoRegistradoException;
+import com.example.ProyectoWeb.model.Usuario;
+import com.example.ProyectoWeb.service.ServicioRegistro;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.hamcrest.Matchers.is;
 
-@SpringBootTest(classes = {com.example.ProyectoWeb.entrega1.TestApplication.class})
+@SpringBootTest(classes = {com.example.ProyectoWeb.TestApplication.class})
 @AutoConfigureMockMvc
 class ControladorRegistroTests {
 

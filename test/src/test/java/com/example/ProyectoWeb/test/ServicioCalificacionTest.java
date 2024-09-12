@@ -1,10 +1,10 @@
 package com.example.ProyectoWeb.test;
 
-import com.example.ProyectoWeb.entrega1.model.Arrendadores;
-import com.example.ProyectoWeb.entrega1.model.Arrendatarios;
-import com.example.ProyectoWeb.entrega1.repository.RepositorioArrendadores;
-import com.example.ProyectoWeb.entrega1.repository.RepositorioArrendatarios;
-import com.example.ProyectoWeb.entrega1.service.ServicioCalificacion;
+import com.example.ProyectoWeb.model.Arrendadores;
+import com.example.ProyectoWeb.model.Arrendatarios;
+import com.example.ProyectoWeb.repository.RepositorioArrendadores;
+import com.example.ProyectoWeb.repository.RepositorioArrendatarios;
+import com.example.ProyectoWeb.service.ServicioCalificacion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

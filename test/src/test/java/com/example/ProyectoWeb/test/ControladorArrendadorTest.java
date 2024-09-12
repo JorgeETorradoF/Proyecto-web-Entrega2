@@ -1,11 +1,11 @@
 package com.example.ProyectoWeb.test;
-import com.example.ProyectoWeb.entrega1.dto.PropiedadDTO;
-import com.example.ProyectoWeb.entrega1.exception.CamposInvalidosException;
-import com.example.ProyectoWeb.entrega1.exception.PropNoEncontradaException;
-import com.example.ProyectoWeb.entrega1.exception.PropRegistradaException;
-import com.example.ProyectoWeb.entrega1.model.Propiedades;
-import com.example.ProyectoWeb.entrega1.prueba.controllers.ControladorArrendador;
-import com.example.ProyectoWeb.entrega1.service.ServicioPropiedad;
+import com.example.ProyectoWeb.dto.PropiedadDTO;
+import com.example.ProyectoWeb.exception.CamposInvalidosException;
+import com.example.ProyectoWeb.exception.PropNoEncontradaException;
+import com.example.ProyectoWeb.exception.PropRegistradaException;
+import com.example.ProyectoWeb.model.Propiedades;
+import com.example.ProyectoWeb.prueba.controllers.ControladorArrendador;
+import com.example.ProyectoWeb.service.ServicioPropiedad;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -18,8 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
-
-import java.util.Collections;
 
 
 class ControladorArrendadorTest {

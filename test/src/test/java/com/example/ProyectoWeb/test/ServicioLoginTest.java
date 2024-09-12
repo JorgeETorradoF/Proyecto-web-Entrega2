@@ -1,13 +1,13 @@
 package com.example.ProyectoWeb.test;
 
-import com.example.ProyectoWeb.entrega1.dto.LoginDTO;
-import com.example.ProyectoWeb.entrega1.dto.RespuestaLoginDTO;
-import com.example.ProyectoWeb.entrega1.exception.CorreoNoExistenteException;
-import com.example.ProyectoWeb.entrega1.model.Arrendadores;
-import com.example.ProyectoWeb.entrega1.model.Arrendatarios;
-import com.example.ProyectoWeb.entrega1.repository.RepositorioArrendadores;
-import com.example.ProyectoWeb.entrega1.repository.RepositorioArrendatarios;
-import com.example.ProyectoWeb.entrega1.service.ServicioLogin;
+import com.example.ProyectoWeb.dto.LoginDTO;
+import com.example.ProyectoWeb.dto.RespuestaLoginDTO;
+import com.example.ProyectoWeb.exception.CorreoNoExistenteException;
+import com.example.ProyectoWeb.model.Arrendadores;
+import com.example.ProyectoWeb.model.Arrendatarios;
+import com.example.ProyectoWeb.repository.RepositorioArrendadores;
+import com.example.ProyectoWeb.repository.RepositorioArrendatarios;
+import com.example.ProyectoWeb.service.ServicioLogin;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

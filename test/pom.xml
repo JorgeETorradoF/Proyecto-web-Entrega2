@@ -98,7 +98,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.example.ProyectoWeb.entrega1.TestApplication</mainClass>
+                    <mainClass>com.example.ProyectoWeb.TestApplication</mainClass>
                 </configuration>
             </plugin>
 

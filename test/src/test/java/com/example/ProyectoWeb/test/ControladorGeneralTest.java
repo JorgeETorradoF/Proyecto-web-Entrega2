@@ -8,7 +8,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-@SpringBootTest(classes = {com.example.ProyectoWeb.entrega1.TestApplication.class})
+@SpringBootTest(classes = {com.example.ProyectoWeb.TestApplication.class})
 @AutoConfigureMockMvc 
 class ControladorGeneralTest {
 

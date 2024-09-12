@@ -1,9 +1,9 @@
 package com.example.ProyectoWeb.test;
 
-import com.example.ProyectoWeb.entrega1.prueba.controllers.ControladorCalificacion;
-import com.example.ProyectoWeb.entrega1.service.ServicioCalificacion;
-import com.example.ProyectoWeb.entrega1.model.Arrendadores; 
-import com.example.ProyectoWeb.entrega1.model.Arrendatarios; 
+import com.example.ProyectoWeb.prueba.controllers.ControladorCalificacion;
+import com.example.ProyectoWeb.service.ServicioCalificacion;
+import com.example.ProyectoWeb.model.Arrendadores; 
+import com.example.ProyectoWeb.model.Arrendatarios; 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

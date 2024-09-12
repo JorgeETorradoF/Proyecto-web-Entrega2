@@ -1,9 +1,9 @@
 package com.example.ProyectoWeb.test;
 
-import com.example.ProyectoWeb.entrega1.dto.LoginDTO;
-import com.example.ProyectoWeb.entrega1.dto.RespuestaLoginDTO;
-import com.example.ProyectoWeb.entrega1.exception.CorreoNoExistenteException;
-import com.example.ProyectoWeb.entrega1.service.ServicioLogin;
+import com.example.ProyectoWeb.dto.LoginDTO;
+import com.example.ProyectoWeb.dto.RespuestaLoginDTO;
+import com.example.ProyectoWeb.exception.CorreoNoExistenteException;
+import com.example.ProyectoWeb.service.ServicioLogin;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest(classes = {com.example.ProyectoWeb.entrega1.TestApplication.class})
+@SpringBootTest(classes = {com.example.ProyectoWeb.TestApplication.class})
 @AutoConfigureMockMvc
 class ControladorLoginTest {
 
