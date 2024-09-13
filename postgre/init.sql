@@ -41,6 +41,5 @@ CREATE TABLE public.contratos (
     precio NUMERIC(10,2),
     fecha_inicio TIMESTAMP NOT NULL,
     fecha_final TIMESTAMP NOT NULL,
-    estado INTEGER DEFAULT 0 NOT NULL,
-    en_conflicto BOOLEAN DEFAULT FALSE NOT NULL
+    estado INTEGER DEFAULT 0 NOT NULL
 );

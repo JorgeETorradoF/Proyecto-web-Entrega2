@@ -22,4 +22,7 @@ public interface RepositorioPropiedades extends CrudRepository<Propiedades, Inte
 
     @Query("SELECT p FROM Propiedades p WHERE p.id = :id")
     Optional<Propiedades> findById(@Param("id") int id);
+
+    @Query("SELECT p.valorNoche FROM Propiedades p WHERE p.id = :id")
+    Optional<Float> findPrecioById(@Param("id") int id);
 }

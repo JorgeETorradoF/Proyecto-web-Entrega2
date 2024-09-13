@@ -15,7 +15,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class ContratoTemplate {
-    float precio;
     @Column(name = "fecha_inicio", columnDefinition = "TIMESTAMP")
     protected LocalDateTime fechaInicio;
     @Column(name = "fecha_final", columnDefinition = "TIMESTAMP")

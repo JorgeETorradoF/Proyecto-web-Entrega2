@@ -30,7 +30,6 @@ public class ModelMapperConfig {
             @Override
             protected void configure() {
                 // Mapear cada campo explícitamente
-                map(source.getPrecio(), destination.getPrecio());
                 map(source.getFechaInicio(), destination.getFechaInicio());
                 map(source.getFechaFinal(), destination.getFechaFinal());
 
@@ -39,7 +38,8 @@ public class ModelMapperConfig {
                 skip(destination.getIdArrendatario());
                 skip(destination.getIdPropiedad());
                 skip(destination.getEstado());
-                skip(destination.isEnConflicto());
+                //ignorar el precio, se calcula en el servicio y se inyecta
+                skip(destination.getPrecio());
             }
         });
 
