@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.ProyectoWeb.dto.ContratoDTO;
 import com.example.ProyectoWeb.exception.CamposInvalidosException;
+import com.example.ProyectoWeb.exception.ConflictoHorariosException;
 import com.example.ProyectoWeb.exception.PropNoEncontradaException;
 import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.repository.RepositorioContratos;
@@ -21,6 +22,7 @@ public class ServicioContratos {
 
     private static final String propNoEncontradaMsg = "No se encuentra la propiedad del usuario solicitada";
 
+    private static final String conflictoHorariosMsg = "La propiedad ya ha sido solicitada en ese horario por algún usuario";
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
@@ -35,8 +37,8 @@ public class ServicioContratos {
             return false; //caso donde no tenga absolutamente nada
         }
 
-        // Validar que la fecha de inicio no sea luego de la fecha final
-        if (contrato.getFechaInicio().isAfter(contrato.getFechaFinal())) {
+        // Validar que la fecha de inicio no sea mayor o igual a la fecha final
+        if (contrato.getFechaInicio().isAfter(contrato.getFechaFinal()) || contrato.getFechaInicio().equals(contrato.getFechaFinal())) {
             return false;
         }
         // Validar que las fechas no sean nulas
@@ -49,11 +51,14 @@ public class ServicioContratos {
         return true;
     }
 
-    public Contratos saveContrato(ContratoDTO contratoDTO, int idArrendatario, int idPropiedad) throws CamposInvalidosException, PropNoEncontradaException
+    public Contratos saveContrato(ContratoDTO contratoDTO, int idArrendatario, int idPropiedad) throws CamposInvalidosException, PropNoEncontradaException, ConflictoHorariosException
     {
         if(checkCamposContrato(contratoDTO))
         {
             Contratos nuevoCont = modelMapper.map(contratoDTO, Contratos.class);
+            if(repositorioContratos.hayConflictoHorarios(nuevoCont.getFechaInicio(),nuevoCont.getFechaFinal())){
+                throw new ConflictoHorariosException(conflictoHorariosMsg);
+            }
             nuevoCont.setIdArrendatario(idArrendatario);
             nuevoCont.setIdPropiedad(idPropiedad);
             //ahora calculamos el precio
@@ -64,7 +69,10 @@ public class ServicioContratos {
                 throw new PropNoEncontradaException(propNoEncontradaMsg);
             }
             //si llega hasta aquí significa que la propiedad sí existe, por ende proseguimos (se hace un ceil en caso que sea de menos de 1 día, pues igual se le cobra lo del día, para que tenga mas sentido según la lógica del negocio)
-            long cantiNoches = (long) Math.ceil((double) Duration.between(nuevoCont.getFechaInicio(), nuevoCont.getFechaFinal()).toHours() / 24);
+            long cantiNoches = Duration.between(nuevoCont.getFechaInicio(), nuevoCont.getFechaFinal()).toDays();
+            //si la diferencia es de menos de 1 día igual se cobra el día (no se puede dar arriendos de gratis)
+            if(cantiNoches < 1)
+                cantiNoches = 1;
             nuevoCont.setPrecio(precioNoche*cantiNoches);
             //retornamos el resultado de guardar en el repo
             return repositorioContratos.save(nuevoCont);
@@ -78,5 +86,4 @@ public class ServicioContratos {
     {
         return repositorioContratos.getAllByIdArrendatario(idArrendatario);
     }
-    
 }
