@@ -39,7 +39,6 @@ public class ServicioContratos {
         if (contrato.getFechaInicio().isAfter(contrato.getFechaFinal())) {
             return false;
         }
-
         // Validar que las fechas no sean nulas
         if (contrato.getFechaInicio() == null || contrato.getFechaFinal() == null) {
             return false;
@@ -64,8 +63,8 @@ public class ServicioContratos {
             {
                 throw new PropNoEncontradaException(propNoEncontradaMsg);
             }
-            //si llega hasta aquí significa que la propiedad sí existe, por ende proseguimos
-            long cantiNoches = Duration.between(nuevoCont.getFechaInicio(), nuevoCont.getFechaFinal()).toDays();
+            //si llega hasta aquí significa que la propiedad sí existe, por ende proseguimos (se hace un ceil en caso que sea de menos de 1 día, pues igual se le cobra lo del día, para que tenga mas sentido según la lógica del negocio)
+            long cantiNoches = (long) Math.ceil((double) Duration.between(nuevoCont.getFechaInicio(), nuevoCont.getFechaFinal()).toHours() / 24);
             nuevoCont.setPrecio(precioNoche*cantiNoches);
             //retornamos el resultado de guardar en el repo
             return repositorioContratos.save(nuevoCont);
