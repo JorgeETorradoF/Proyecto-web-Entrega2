@@ -34,19 +34,6 @@ public class ControladorArrendador {
         this.servicioContratos = servicioContratos;
     }
 
-
-    @GetMapping
-    public String mostrarPanelArrendador(@PathVariable("id") int id, Model model) {
-        model.addAttribute("id", id);
-        return "pantallaArrendador";
-    }
-
-    @GetMapping("/crear-propiedad")
-    public String mostrarFormularioCrearPropiedad(@PathVariable("id") int id, Model model) {
-        model.addAttribute("id", id);
-        return "crear-propiedad"; // Nombre del archivo Thymeleaf para el formulario de creación de propiedad
-    }
-
     @PostMapping(value = "/registrar-propiedad", consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> registrarPropiedad(@PathVariable("id") int id, Model model,@RequestBody PropiedadDTO propiedadDTO) {
         model.addAttribute("id", id);
