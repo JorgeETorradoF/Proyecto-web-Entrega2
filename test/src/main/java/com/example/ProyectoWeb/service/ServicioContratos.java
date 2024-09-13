@@ -18,7 +18,7 @@ import java.time.Duration;
 @Service
 public class ServicioContratos {
 
-    private static final String mensajeCamposInvalidos = "No se admiten campos vacíos, intente de nuevo";
+    private static final String mensajeCamposInvalidos = "Hay campos vacíos o inválidos, por favor revise fechas y demás e intente de nuevo";
 
     private static final String propNoEncontradaMsg = "No se encuentra la propiedad solicitada";
 
@@ -85,5 +85,9 @@ public class ServicioContratos {
     public Iterable<Contratos> getContratosArrendatario(int idArrendatario)
     {
         return repositorioContratos.getAllByIdArrendatario(idArrendatario);
+    }
+    public Iterable<Contratos> getContratosArrendador(int idArrendador)
+    {
+        return repositorioContratos.getAllByIdArrendador(idArrendador);
     }
 }

@@ -15,7 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.ProyectoWeb.dto.PropiedadDTO;
 import com.example.ProyectoWeb.exception.PropNoEncontradaException;
+import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.model.Propiedades;
+import com.example.ProyectoWeb.service.ServicioContratos;
 import com.example.ProyectoWeb.service.ServicioPropiedad;
 
 
@@ -24,10 +26,12 @@ import com.example.ProyectoWeb.service.ServicioPropiedad;
 public class ControladorArrendador {
 
     private final ServicioPropiedad servicioPropiedad;
+    private final ServicioContratos servicioContratos;
 
-    public ControladorArrendador(ServicioPropiedad servicioPropiedad)
+    public ControladorArrendador(ServicioPropiedad servicioPropiedad, ServicioContratos servicioContratos)
     {
         this.servicioPropiedad = servicioPropiedad;
+        this.servicioContratos = servicioContratos;
     }
 
 
@@ -89,6 +93,13 @@ public class ControladorArrendador {
         {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al obtener la propiedad: " + e.getMessage());
         }
+    }
+    @GetMapping("/mis-contratos")
+    public @ResponseBody Iterable<Contratos> getContratos(@PathVariable("id") int id,Model model)
+    {
+        model.addAttribute("id", id);
+        return servicioContratos.getContratosArrendador(id);
+
     }    
 
 }
