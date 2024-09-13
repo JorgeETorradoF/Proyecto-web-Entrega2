@@ -20,9 +20,9 @@ public class ServicioContratos {
 
     private static final String mensajeCamposInvalidos = "No se admiten campos vacíos, intente de nuevo";
 
-    private static final String propNoEncontradaMsg = "No se encuentra la propiedad del usuario solicitada";
+    private static final String propNoEncontradaMsg = "No se encuentra la propiedad solicitada";
 
-    private static final String conflictoHorariosMsg = "La propiedad ya ha sido solicitada en ese horario por algún usuario";
+    private static final String conflictoHorariosMsg = "La propiedad no está disponible en esos horarios, por favor intente con otro horario";
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
