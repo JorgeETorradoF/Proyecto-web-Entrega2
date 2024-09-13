@@ -9,7 +9,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 
 Una vez se haya desplegado y tenga una IP externa (en algunos casos será localhost como por ejemplo en docker desktop), se puede continuar:
 
-1. **Cree el namespace thymeleaf:**
+1. **Cree el namespace proyecto-web:**
     ```bash
     kubectl create namespace proyecto-web
     ```
@@ -35,7 +35,7 @@ Una vez se haya desplegado y tenga una IP externa (en algunos casos será localh
 
 6. **Entre a la carpeta `test` y ejecute el script de build y push de imagen:**
     ```bash
-    buildAndPush.bat proyecto_e1
+    buildAndPush.bat proyecto_web
     ```
     **posdata: si le aparece algún error al buildear, abra con visual studio el archivo mvnw y cambiele sus caracteres especiales de crlf a lf**
 
