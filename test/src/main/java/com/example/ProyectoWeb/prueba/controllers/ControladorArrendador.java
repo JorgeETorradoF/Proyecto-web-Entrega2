@@ -15,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.ProyectoWeb.dto.PropiedadDTO;
 import com.example.ProyectoWeb.exception.PropNoEncontradaException;
+import com.example.ProyectoWeb.exception.ContratoNoExistenteException;
 import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.model.Propiedades;
 import com.example.ProyectoWeb.service.ServicioContratos;
@@ -88,6 +89,25 @@ public class ControladorArrendador {
         return servicioContratos.getContratosArrendador(id);
 
     }    
+    @PutMapping("/aceptar-contrato/{contratoId}")
+    public ResponseEntity<?> aceptarContrato(@PathVariable("id") int id, @PathVariable("contratoId") int contratoId){
+        try {
+            Contratos contratoAceptado = servicioContratos.aceptarContrato(contratoId);
+            return ResponseEntity.ok(contratoAceptado);
+        } catch (ContratoNoExistenteException e){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error al modificar la propiedad: " + e.getMessage());
+        }
+    }
+
+    @PutMapping("/rechazar-contrato/{contratoId}")
+    public ResponseEntity<?> rechazarContrato(@PathVariable("id") int id, @PathVariable("contratoId") int contratoId){
+        try {
+            Contratos contratoRechazado = servicioContratos.rechazarContrato(contratoId);
+            return ResponseEntity.ok(contratoRechazado);
+        } catch (ContratoNoExistenteException e){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error al modificar la propiedad: " + e.getMessage());
+        }
+    }
 
 }
 

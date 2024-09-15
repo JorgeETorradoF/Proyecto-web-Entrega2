@@ -8,6 +8,7 @@ import com.example.ProyectoWeb.dto.ContratoDTO;
 import com.example.ProyectoWeb.exception.CamposInvalidosException;
 import com.example.ProyectoWeb.exception.ConflictoHorariosException;
 import com.example.ProyectoWeb.exception.PropNoEncontradaException;
+import com.example.ProyectoWeb.exception.ContratoNoExistenteException;
 import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.repository.RepositorioContratos;
 import com.example.ProyectoWeb.repository.RepositorioPropiedades;
@@ -23,6 +24,8 @@ public class ServicioContratos {
     private static final String propNoEncontradaMsg = "No se encuentra la propiedad solicitada";
 
     private static final String conflictoHorariosMsg = "La propiedad no está disponible en esos horarios, por favor intente con otro horario";
+
+    private static final String contratoNoEncontradoMsg = "No se encontró el contrato con id ";
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
@@ -82,12 +85,33 @@ public class ServicioContratos {
             throw new CamposInvalidosException(mensajeCamposInvalidos);
         }
     }
+
     public Iterable<Contratos> getContratosArrendatario(int idArrendatario)
     {
         return repositorioContratos.getAllByIdArrendatario(idArrendatario);
     }
+
     public Iterable<Contratos> getContratosArrendador(int idArrendador)
     {
         return repositorioContratos.getAllByIdArrendador(idArrendador);
     }
+
+    public Contratos aceptarContrato(int contratoId) throws ContratoNoExistenteException {
+        Contratos contratoAceptado = repositorioContratos.findById(contratoId)
+                .orElseThrow(() -> new ContratoNoExistenteException(contratoNoEncontradoMsg + contratoId));
+
+        contratoAceptado.setEstado(1);
+        repositorioContratos.save(contratoAceptado);
+        return contratoAceptado;
+    }
+
+    public Contratos rechazarContrato(int contratoId) throws ContratoNoExistenteException {
+        Contratos contratoRechazado = repositorioContratos.findById(contratoId)
+                .orElseThrow(() -> new ContratoNoExistenteException(contratoNoEncontradoMsg + contratoId));
+
+        contratoRechazado.setEstado(-1);
+        repositorioContratos.save(contratoRechazado);
+        return contratoRechazado;
+    }
+    
 }

@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Repository
 public interface RepositorioContratos extends CrudRepository<Contratos, Integer> {
@@ -20,5 +21,8 @@ public interface RepositorioContratos extends CrudRepository<Contratos, Integer>
 
     @Query("SELECT COUNT(c) > 0 FROM Contratos c WHERE c.estado != -1 AND ((c.fechaInicio = :fechaInicio AND c.fechaFinal = :fechaFin) OR (c.fechaInicio < :fechaFin AND c.fechaFinal > :fechaInicio))")
     boolean hayConflictoHorarios(LocalDateTime fechaInicio, LocalDateTime fechaFin);
+
+    @Query("SELECT c FROM Contratos c WHERE c.id = :id")
+    Optional<Contratos> findById(@Param("id") int id);
     
 }
