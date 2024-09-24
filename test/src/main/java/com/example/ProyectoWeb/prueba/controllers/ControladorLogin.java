@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/iniciar-sesion")
+@RequestMapping("/api/iniciar-sesion")
 public class ControladorLogin {
     
     private final ServicioLogin servicioLogin;

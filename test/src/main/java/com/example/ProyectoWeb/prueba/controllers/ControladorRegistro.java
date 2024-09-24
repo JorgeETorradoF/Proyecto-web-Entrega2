@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/crear-cuenta")
+@RequestMapping("/api/crear-cuenta")
 public class ControladorRegistro {
     
     private final ServicioRegistro servicioRegistro;

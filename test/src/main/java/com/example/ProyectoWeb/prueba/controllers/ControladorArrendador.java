@@ -23,7 +23,7 @@ import com.example.ProyectoWeb.service.ServicioPropiedad;
 
 
 @Controller
-@RequestMapping("/arrendador/{id}")
+@RequestMapping("/api/arrendador/{id}")
 public class ControladorArrendador {
 
     private final ServicioPropiedad servicioPropiedad;

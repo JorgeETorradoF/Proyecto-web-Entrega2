@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test
+  name: backend-web
   namespace: proyecto-web
 spec:
   selector:
     matchLabels:
-      app: test
+      app: backend-web
   replicas: 1
   template:
     metadata:
       labels:
-        app: test
+        app: backend-web
     spec:
       imagePullSecrets:
         - name: github-secret
       containers:
-        - name: test
+        - name: backend-web
           image: localhost:5000/proyecto_web:latest
           env:
             - name: SPRING_DATASOURCE_URL
@@ -31,12 +31,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: test
+  name: backend-service
   namespace: proyecto-web
 spec:
   type: ClusterIP
   selector:
-    app: test
+    app: backend-web
   ports:
     - protocol: TCP
       port: 8080

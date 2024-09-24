@@ -16,7 +16,7 @@ import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.service.ServicioContratos;
 
 @Controller
-@RequestMapping("/arrendatario/{id}")
+@RequestMapping("/api/arrendatario/{id}")
 public class ControladorArrendatario {
 
     private final ServicioContratos servicioContratos;
