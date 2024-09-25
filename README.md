@@ -29,7 +29,7 @@ Una vez se haya desplegado y tenga una IP externa (en algunos casos será localh
     ```
      **posdata: si le aparece algún error al buildear, abra con visual studio el archivo mvnw y cambiele sus caracteres especiales de crlf a lf**
 
-4. **Entre a la carpeta `test` y ejecute el script de build y push de imagen:**
+4. **Entre a la carpeta `backEndWeb` y ejecute el script de build y push de imagen:**
     ```bash
     buildAndPush.bat backend_web
     ```
