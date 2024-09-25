@@ -28,24 +28,18 @@ Una vez se haya desplegado y tenga una IP externa (en algunos casos será localh
     buildAndPush.bat dockersito-postgres
     ```
 
-5. **Entre a la carpeta `k8s` dentro de la carpeta `postgre` y aplique el deployment:**
-    ```bash
-    kubectl apply -f deployment.yaml
-    ```
-
-6. **Entre a la carpeta `test` y ejecute el script de build y push de imagen:**
+5. **Entre a la carpeta `test` y ejecute el script de build y push de imagen:**
     ```bash
     buildAndPush.bat proyecto_web
     ```
     **posdata: si le aparece algún error al buildear, abra con visual studio el archivo mvnw y cambiele sus caracteres especiales de crlf a lf**
 
-7. **Entre a la carpeta `k8s` dentro de la carpeta `tests` y aplique el deployment y el ingress:**
+6. **Entre a la carpeta `k8s` ubicada en la raíz de este proyecto y ejecute el script que automatiza la aplicación de las configuraciones del k8s:**
     ```bash
-    kubectl apply -f deployment.yaml
-    kubectl apply -f ingress.yaml
+    aplicar_configuraciones_k8s.bat
     ```
 
-8. **Para confirmar que todo salió bien ejecute el comando:**
+7. **Para confirmar que todo salió bien ejecute el comando:**
     ```bash
     kubectl get pods -n proyecto-web
     ```
