@@ -51,7 +51,7 @@ Una vez se haya desplegado y tenga una IP externa (en algunos casos será localh
     kubectl get pods -n proyecto-web
     ```
 
-Deberían aparecerle 2 pods con estado `Running` y replicas `1/1`, en cuyo caso ya puede acceder desde su browser digitando la external ip que aparece en el nginx-controller de tipo LoadBalancer (digite este comando si necesita saberla):
+Deberían aparecerle 3 pods con estado `Running` y replicas `1/1`, en cuyo caso ya puede acceder desde su browser digitando la external ip que aparece en el nginx-controller de tipo LoadBalancer (digite este comando si necesita saberla):
    ```bash
    kubectl get svc -n ingress-nginx
    ```
