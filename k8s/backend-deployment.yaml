@@ -17,7 +17,7 @@ spec:
         - name: github-secret
       containers:
         - name: backend-web
-          image: localhost:5000/proyecto_web:latest
+          image: localhost:5000/backend_web:latest
           env:
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://postgres-service:5432/postgres

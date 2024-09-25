@@ -23,14 +23,21 @@ Una vez se haya desplegado y tenga una IP externa (en algunos casos será localh
     docker start registry
     ```
 
-4. **Entre a la carpeta `postgre` y ejecute el script de build y push de imagen:**
+3. **Entre a la carpeta `postgre` y ejecute el script de build y push de imagen:**
     ```bash
     buildAndPush.bat dockersito-postgres
     ```
+     **posdata: si le aparece algún error al buildear, abra con visual studio el archivo mvnw y cambiele sus caracteres especiales de crlf a lf**
 
-5. **Entre a la carpeta `test` y ejecute el script de build y push de imagen:**
+4. **Entre a la carpeta `test` y ejecute el script de build y push de imagen:**
     ```bash
-    buildAndPush.bat proyecto_web
+    buildAndPush.bat backend_web
+    ```
+    **posdata: si le aparece algún error al buildear, abra con visual studio el archivo mvnw y cambiele sus caracteres especiales de crlf a lf**
+
+5. **Entre a la carpeta `frontEndWeb` y ejecute el script de build y push de imagen:**
+    ```bash
+    buildAndPush.bat frontend_web
     ```
     **posdata: si le aparece algún error al buildear, abra con visual studio el archivo mvnw y cambiele sus caracteres especiales de crlf a lf**
 
@@ -53,11 +60,14 @@ Deberían aparecerle 2 pods con estado `Running` y replicas `1/1`, en cuyo caso 
 - **Para desplegar y probar cambios en la base de datos:**
   - Repita los pasos 2 (solo la segunda parte de este paso) y 3.
 
-- **Para desplegar y probar cambios en el backend/frontend:**
+- **Para desplegar y probar cambios en el backend:**
+  - Repita los pasos 2 (solo la segunda parte de este paso) y 4.
+
+- **Para desplegar y probar cambios en el frontend:**
   - Repita los pasos 2 (solo la segunda parte de este paso) y 5.
 
-- **Para desplegar y probar todo (backend/frontend y base de datos):**
-  - Repita los pasos 2 (solo la segunda parte de este paso), 3, y 5.
+- **Para desplegar y probar todo (backend, frontend y base de datos):**
+  - Repita los pasos 2 (solo la segunda parte de este paso), 3, 4 y 5.
 
 ## Y por último, ejecute el comando:
    ```bash
