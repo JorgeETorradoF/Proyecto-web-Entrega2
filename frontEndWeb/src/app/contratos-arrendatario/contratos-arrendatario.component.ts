@@ -60,4 +60,10 @@ export class ContratosArrendatarioComponent implements OnInit {
         return 'Desconocido'; // siempre estára entre los 3 primeros pero el compilador jode si no hay un default :'v
     }
   }
+
+  // Método para redirigir a la pantalla solicitar un contrato
+  solicitarContrato()
+  {
+    
+  }
 }
