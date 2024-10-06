@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Mis Contratos</h2>
+    
+    <div *ngIf="contratos.length === 0; else contratosList">
+      <p>No hay contratos disponibles.</p> <!-- Mensaje si no hay contratos -->
+    </div>
+    
+    <ng-template #contratosList>
+      <div *ngFor="let contrato of contratos" class="contrato-card">
+        <p><strong>ID de Propiedad:</strong> {{ contrato.idPropiedad }}</p>
+        <p><strong>ID de Arrendatario:</strong> {{ contrato.idArrendatario }}</p>
+        <p><strong>Fecha de Inicio:</strong> {{ contrato.fechaInicio | date:'short' }}</p>
+        <p><strong>Fecha Final:</strong> {{ contrato.fechaFinal | date:'short' }}</p>
+        <p><strong>Precio:</strong> {{ contrato.precio | currency }}</p>
+        <p><strong>Estado:</strong> {{ getEstadoContrato(contrato.estado) }}</p> <!-- Mostrar estado -->
+      </div>
+    </ng-template>
+</div>
