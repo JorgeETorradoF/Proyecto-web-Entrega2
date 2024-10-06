@@ -20,12 +20,12 @@ interface Contract {
 export class ContratosArrendadorComponent implements OnInit {
   contratos: Contract[] = []; // Array para almacenar los contratos
   idArrendador!: number; // ID del arrendador
-  ip: string = 'localhost'; // Cambia esto a la IP deseada o configúralo dinámicamente si es necesario
+  ip: string = 'localhost'; // se debe cambiar a la external ip de la máquina virtual si no es en vm dejemoslo localhost
 
   constructor(private route: ActivatedRoute, private contratosService: ContratosService) {}
 
   ngOnInit() {
-    // Configura la IP en el servicio
+    // Se configura la IP en el servicio
     this.contratosService.setIp(this.ip);
 
     // Obtener el ID del arrendador de la URL
@@ -42,20 +42,49 @@ export class ContratosArrendadorComponent implements OnInit {
         this.contratos = data; // Almacena los contratos en la propiedad
       },
       error => {
-        console.error('Error al obtener contratos:', error); // Verifica si hay un error
+        console.error('Error al obtener contratos:', error); // imprime si llega a haber algún error
       }
     );
   }
 
+  // Método para obtener el estado del contrato en formato legible
+  getEstadoContrato(estado: number): string {
+    switch (estado) {
+      case 1:
+        return 'Aceptado';
+      case -1:
+        return 'Rechazado';
+      case 0:
+        return 'Pendiente';
+      default:
+        return 'Desconocido'; // siempre estára entre los 3 primeros pero el compilador jode si no hay un default :'v
+    }
+  }
+
+  
   // Método para aceptar un contrato
   aceptarContrato(id: number) {
-    console.log(`Contrato aceptado: ${id}`);
-    // Aquí podrías agregar la lógica para aceptar el contrato, posiblemente haciendo una petición al backend
+    this.contratosService.aceptarContrato(this.idArrendador, id).subscribe(
+      response => {
+        console.log(`Contrato aceptado: ${id}`, response);
+        this.obtenerContratos(); // Vuelve a cargar los contratos si es necesario
+      },
+      error => {
+        console.error('Error al aceptar el contrato:', error);
+      }
+    );
   }
 
   // Método para rechazar un contrato
   rechazarContrato(id: number) {
-    console.log(`Contrato rechazado: ${id}`);
-    // Aquí podrías agregar la lógica para rechazar el contrato, posiblemente haciendo una petición al backend
+    this.contratosService.rechazarContrato(this.idArrendador, id).subscribe(
+      response => {
+        console.log(`Contrato rechazado: ${id}`, response);
+        this.obtenerContratos(); // Vuelve a cargar los contratos si es necesario
+      },
+      error => {
+        console.error('Error al rechazar el contrato:', error);
+      }
+    );
   }
 }

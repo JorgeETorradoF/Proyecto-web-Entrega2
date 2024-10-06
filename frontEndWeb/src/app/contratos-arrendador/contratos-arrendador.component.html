@@ -12,10 +12,10 @@
         <p><strong>Fecha de Inicio:</strong> {{ contrato.fechaInicio | date:'short' }}</p>
         <p><strong>Fecha Final:</strong> {{ contrato.fechaFinal | date:'short' }}</p>
         <p><strong>Precio:</strong> {{ contrato.precio | currency }}</p>
-        
+        <p><strong>Estado:</strong> {{ getEstadoContrato(contrato.estado) }}</p> <!-- Mostrar estado -->
+
         <button (click)="aceptarContrato(contrato.id)">Aceptar</button>
         <button (click)="rechazarContrato(contrato.id)">Rechazar</button>
       </div>
     </ng-template>
-  </div>
-  
+</div>

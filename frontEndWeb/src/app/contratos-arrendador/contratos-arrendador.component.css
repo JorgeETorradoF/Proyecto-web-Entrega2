@@ -3,7 +3,7 @@
     background-size: cover;  /* Cubre todo el contenedor */
     background-position: center; /* Centra la imagen */
     padding: 20px;
-    color: white; /* Cambia el color del texto para que sea legible sobre la imagen */
+    color: black; /* Cambia el color del texto para que sea legible sobre la imagen */
     min-height: 100vh; /* Asegúrate de que el contenedor tenga suficiente altura para mostrar el fondo */
   }
   
