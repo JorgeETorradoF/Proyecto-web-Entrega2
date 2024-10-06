@@ -22,7 +22,7 @@ h2{
 :host{
     display: block;
     height: 100vh; /* Asegura que el fondo ocupe toda la altura de la pantalla */
-    background-image: url('../assets/images/finca.webp');
+    background-image: url('../../assets/images/finca.webp');
     background-size: cover; /* Para que la imagen cubra todo el espacio */
     background-position: center;
     background-repeat: no-repeat;

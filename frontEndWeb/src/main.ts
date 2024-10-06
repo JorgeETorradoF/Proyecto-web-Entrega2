@@ -1,6 +1,8 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { logInComponent } from './app/logIn.component';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { AppModule } from './app/app.module';
 
-bootstrapApplication(logInComponent, appConfig)
-  .catch((err) => console.error(err));
+
+// se inicia con el modulo raiz (AppModule)
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
