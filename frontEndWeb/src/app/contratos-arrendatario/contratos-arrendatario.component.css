@@ -1,0 +1,33 @@
+.container {
+    background-image: url('../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
+    background-size: cover;  /* Cubre todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    padding: 20px;
+    color: white; /* Cambia el color del texto para que sea legible sobre la imagen */
+    min-height: 100vh; /* Asegúrate de que el contenedor tenga suficiente altura para mostrar el fondo */
+  }
+  
+  .contrato-card {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para legibilidad */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  h2{
+    color: black;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #007bff; /* Color de fondo de los botones */
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color de fondo de los botones al pasar el ratón */
+  }
+  
