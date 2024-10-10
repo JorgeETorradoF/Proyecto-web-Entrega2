@@ -13,13 +13,13 @@ interface Contract {
 }
 
 @Component({
-  selector: 'app-contratos-arrendador',
-  templateUrl: './contratos-arrendador.component.html',
-  styleUrls: ['./contratos-arrendador.component.css']
+  selector: 'app-contratos-arrendatario',
+  templateUrl: './contratos-arrendatario.component.html',
+  styleUrls: ['./contratos-arrendatario.component.css']
 })
-export class ContratosArrendadorComponent implements OnInit {
+export class ContratosArrendatarioComponent implements OnInit {
   contratos: Contract[] = []; // Array para almacenar los contratos
-  idArrendador!: number; // ID del arrendador
+  idArrendatario!: number; // ID del Arrendatario
   ip: string = 'localhost'; // se debe cambiar a la external ip de la máquina virtual si no es en vm dejemoslo localhost
 
   constructor(private route: ActivatedRoute, private contratosService: ContratosService) {}
@@ -28,15 +28,15 @@ export class ContratosArrendadorComponent implements OnInit {
     // Se configura la IP en el servicio
     this.contratosService.setIp(this.ip);
 
-    // Obtener el ID del arrendador de la URL
-    this.idArrendador = +this.route.snapshot.paramMap.get('idArrendador')!;
-    console.log('ID del arrendador:', this.idArrendador);
+    // Obtener el ID del Arrendatario de la URL
+    this.idArrendatario = +this.route.snapshot.paramMap.get('idArrendatario')!;
+    console.log('ID del Arrendatario:', this.idArrendatario);
     this.obtenerContratos();
   }
 
   // Método para obtener los contratos del backend usando el servicio
   obtenerContratos() {
-    this.contratosService.getContratosArrendador(this.idArrendador).subscribe(
+    this.contratosService.getContratosArrendatario(this.idArrendatario).subscribe(
       data => {
         console.log('Contratos obtenidos:', data); // Verifica la respuesta en la consola
         this.contratos = data; // Almacena los contratos en la propiedad
@@ -61,30 +61,9 @@ export class ContratosArrendadorComponent implements OnInit {
     }
   }
 
-  
-  // Método para aceptar un contrato
-  aceptarContrato(id: number) {
-    this.contratosService.aceptarContrato(this.idArrendador, id).subscribe(
-      response => {
-        console.log(`Contrato aceptado: ${id}`, response);
-        this.obtenerContratos(); // Vuelve a cargar los contratos si es necesario
-      },
-      error => {
-        console.error('Error al aceptar el contrato:', error);
-      }
-    );
-  }
-
-  // Método para rechazar un contrato
-  rechazarContrato(id: number) {
-    this.contratosService.rechazarContrato(this.idArrendador, id).subscribe(
-      response => {
-        console.log(`Contrato rechazado: ${id}`, response);
-        this.obtenerContratos(); // Vuelve a cargar los contratos si es necesario
-      },
-      error => {
-        console.error('Error al rechazar el contrato:', error);
-      }
-    );
+  // Método para redirigir a la pantalla solicitar un contrato
+  solicitarContrato()
+  {
+    
   }
 }

@@ -22,12 +22,24 @@ export class ContratosService {
 
   // Método para configurar la IP
   setIp(ip: string) {
-    this.baseUrl = `http://${ip}/api`; // Establece la base URL con la IP proporcionada
+    this.baseUrl = `http://${ip}/api`; // Se configura la url con base en la ip que se provee
   }
 
   // Método para obtener contratos por ID de arrendador
   getContratosArrendador(idArrendador: number): Observable<Contract[]> {
     return this.http.get<Contract[]>(`${this.baseUrl}/arrendador/${idArrendador}/mis-contratos`);
+  }
+
+  // Método para aceptar un contrato
+  aceptarContrato(idArrendador: number, idContrato: number): Observable<any> {
+    const url = `${this.baseUrl}/arrendador/${idArrendador}/aceptar-contrato/${idContrato}`;
+    return this.http.put<any>(url, {});
+  }
+
+  // Método para rechazar un contrato
+  rechazarContrato(idArrendador: number, idContrato: number): Observable<any> {
+    const url = `${this.baseUrl}/arrendador/${idArrendador}/rechazar-contrato/${idContrato}`;
+    return this.http.put<any>(url, {});
   }
 
   // Método para obtener contratos por ID de arrendatario
