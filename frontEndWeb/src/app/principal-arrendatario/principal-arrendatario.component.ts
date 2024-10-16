@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-principal-arrendatario',
-  standalone: true,
-  imports: [],
   templateUrl: './principal-arrendatario.component.html',
   styleUrl: './principal-arrendatario.component.css'
 })
@@ -25,4 +23,3 @@ export class PrincipalArrendatarioComponent implements OnInit {
     this.router.navigate([`/arrendatario/${this.idArrendatario}/calificar`]);
   }
 }
-

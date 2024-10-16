@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-principal-arrendador',
-  standalone: true,
-  imports: [],
   templateUrl: './principal-arrendador.component.html',
   styleUrl: './principal-arrendador.component.css'
 })
