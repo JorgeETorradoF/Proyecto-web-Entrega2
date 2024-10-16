@@ -7,12 +7,16 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component'; // Componente principal
 import { ContratosArrendadorComponent } from './contratos-arrendador/contratos-arrendador.component'; // Componente de contratos
 import { ContratosArrendatarioComponent } from './contratos-arrendatario/contratos-arrendatario.component';
+import { PrincipalArrendadorComponent } from './principal-arrendador/principal-arrendador.component';
+import { PrincipalArrendatarioComponent } from './principal-arrendatario/principal-arrendatario.component';
 
 @NgModule({
   declarations: [
     AppComponent,                  // Componente raíz
     ContratosArrendadorComponent,  // Componente de contratos de arrendador
-    ContratosArrendatarioComponent //componente de contratos de arrendatario
+    ContratosArrendatarioComponent, //componente de contratos de arrendatario
+    PrincipalArrendadorComponent, // Componente de pantalla principal de arrendador
+    PrincipalArrendatarioComponent, // Componente de pantalla principal de arrendatario
   ],
   imports: [
     BrowserModule,                // Requerido para aplicaciones en el navegador
