@@ -24,6 +24,6 @@ export class PrincipalArrendadorComponent implements OnInit {
   }
 
   navigateToVerPropiedades() {
-    this.router.navigate([`/arrendador/${this.idArrendador}/ver-propiedades`]);
+    this.router.navigate([`/arrendador/${this.idArrendador}/propiedades`]);
   }
 }
