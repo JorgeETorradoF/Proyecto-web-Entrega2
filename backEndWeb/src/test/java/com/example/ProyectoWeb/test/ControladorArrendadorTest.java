@@ -3,7 +3,6 @@ package com.example.ProyectoWeb.test;
 import com.example.ProyectoWeb.dto.PropiedadDTO;
 import com.example.ProyectoWeb.exception.CamposInvalidosException;
 import com.example.ProyectoWeb.exception.PropNoEncontradaException;
-import com.example.ProyectoWeb.exception.PropRegistradaException;
 import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.model.Propiedades;
 import com.example.ProyectoWeb.prueba.controllers.ControladorArrendador;

@@ -8,6 +8,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class LoginDTO {
+    public LoginDTO() {
+        //TODO Auto-generated constructor stub
+    }
     private String correo;
     private String contraseña;
 }

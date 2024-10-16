@@ -2,7 +2,7 @@
     <div class="wrapper1" [ngClass]="{ 'active': isActive }">
         <div class="form-box login">
             <h2>Iniciar Sesión</h2>
-            <form action="">
+            <form (submit)="onLoginSubmit($event)">  <!-- Llama a onLoginSubmit -->
                 <div class="input-box">
                     <input type="email" required>
                     <label for="">Correo</label>
@@ -23,7 +23,7 @@
         </div>
         <div class="form-box register">
             <h2>Registrate</h2>
-            <form action="">
+            <form (submit)="onRegisterSubmit($event)">  <!-- Llama a onRegisterSubmit -->
                  <div class="input-box">
                      <input type="text" required>
                      <label for="">Nombre</label>
@@ -55,15 +55,10 @@
                         Arrendatario
                     </label>
                 </div>
-
-                <div class="remember-forgot">
-                    <label><input type="checkbox" required> <a href="#">Acepto los terminos y condiciones</a></label>
-                </div>
                 <button type="submit">Registrarse</button>
                 <div class="login-register">
                     <p>Tienes una cuenta? <a class="login-link" href="javascript:void(0)" (click)="toggleLogin()">Ingresa aquí</a></p>
                 </div>
-
             </form>
         </div>
     </div>

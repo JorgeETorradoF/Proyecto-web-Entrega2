@@ -7,6 +7,7 @@ import com.example.ProyectoWeb.service.ServicioLogin;
 import com.example.ProyectoWeb.dto.LoginDTO;
 import com.example.ProyectoWeb.dto.RespuestaLoginDTO;
 import com.example.ProyectoWeb.exception.CorreoNoExistenteException;
+import com.example.ProyectoWeb.model.RedirectResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,23 +22,22 @@ public class ControladorLogin {
         this.servicioLogin = servicioLogin;
     }
     
-    @GetMapping("/{email}/{password}")
-    public ResponseEntity<?> LoginUsuario(@PathVariable String email, @PathVariable String password) {
-        LoginDTO loginDTO = new LoginDTO(email, password);
+    @PostMapping
+    public ResponseEntity<?> loginUsuario(@RequestBody LoginDTO loginDTO) {
         try {
-            RespuestaLoginDTO login  = servicioLogin.loginUser(loginDTO);
-            String ruta = new String(); 
+            RespuestaLoginDTO login = servicioLogin.loginUser(loginDTO);
+            String ruta;
 
-            if (login.isArrendador()){
+            if (login.isArrendador()) {
                 ruta = "/arrendador/" + login.getId();
-            } else if (!login.isArrendador()) {
+            } else {
                 ruta = "/arrendatario/" + login.getId();
             }
-            return ResponseEntity.ok(ruta);
-
+            // Envolver la URL en un objeto JSON
+            RedirectResponse response = new RedirectResponse(ruta);
+            return ResponseEntity.ok(response); // Retornar el objeto JSON
 
         } catch (CorreoNoExistenteException e) {
-
             // Crear un objeto JSON para el mensaje de error
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("error", e.getMessage());
@@ -50,5 +50,4 @@ public class ControladorLogin {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
-
 }
