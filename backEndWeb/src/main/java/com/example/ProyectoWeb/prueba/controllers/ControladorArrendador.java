@@ -131,11 +131,20 @@ public ResponseEntity<?> registrarPropiedad(
         propiedadDTO.setIdArrendador(id);
 
         try {
+            // Log para validar los datos recibidos
+            logger.info("Recibiendo propiedad para editar. ID Arrendador: {}, ID Propiedad: {}, Datos: {}",
+                    id, propId, propiedadDTO);
+
+            // Llamada al servicio para modificar la propiedad
             return ResponseEntity.ok(servicioPropiedad.modifyPropiedad(propiedadDTO, propId));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al modificar la propiedad: " + e.getMessage());
+            // Log de error con el mensaje
+            logger.error("Error al modificar la propiedad: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Error al modificar la propiedad: " + e.getMessage());
         }
     }
+
 
     // Mostrar detalle de una propiedad
     @GetMapping("/propiedad/{propiedadId}")

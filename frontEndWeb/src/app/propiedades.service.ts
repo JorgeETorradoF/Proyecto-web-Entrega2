@@ -48,16 +48,25 @@ export class PropiedadesService {
     return this.http.post(url, formData);
   }
 
-  // Editar propiedad existente
-  editarPropiedad(idPropiedad: number, propiedad: Propiedad): Observable<Propiedad> {
-    return this.http.put<Propiedad>(`${this.baseUrl}/arrendador/modificar-propiedad/${idPropiedad}`, propiedad);
+  // Obtener los detalles de una propiedad específica
+  getPropiedad(idArrendador: number, idPropiedad: number): Observable<Propiedad> {
+    return this.http.get<Propiedad>(
+      `${this.baseUrl}/arrendador/${idArrendador}/propiedad/${idPropiedad}`,
+      { responseType: 'json' }
+    );
   }
+
+
+  editarPropiedad(idArrendador: number, idPropiedad: number, propiedad: any): Observable<any> {
+    const url = `${this.baseUrl}/arrendador/${idArrendador}/modificar-propiedad/${idPropiedad}`;
+    return this.http.put(url, propiedad, { headers: { 'Content-Type': 'application/json' } });
+  }
+
 
   // Eliminar propiedad
   eliminarPropiedad(idPropiedad: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/propiedades/${idPropiedad}`);
   }
-
   // propiedades.service.ts
   obtenerPropiedad(idArrendador: number, idPropiedad: number) {
   const url = `http://localhost/api/arrendador/${idArrendador}/propiedad/${idPropiedad}`;
