@@ -54,7 +54,9 @@ export class LoginRegisterComponent {
     const lastName = (form[1] as HTMLInputElement).value; // Obtiene el apellido
     const email = (form[2] as HTMLInputElement).value; // Obtiene el correo
     const password = (form[3] as HTMLInputElement).value; // Obtiene la contraseña
-    const role = (form[4] as HTMLInputElement).value === 'arrendador'; // Obtiene el rol como booleano
+
+    // Obtener el rol del input de radio
+    const role = (form.elements.namedItem('role') as HTMLInputElement)?.value === 'arrendador'; // Obtiene el rol como booleano
 
     // Llama al servicio de registro
     this.registroService.register({ nombre: name, apellido: lastName, correo: email, contraseña: password, arrendador: role }).subscribe(
@@ -69,4 +71,5 @@ export class LoginRegisterComponent {
       }
     );
   }
+
 }
