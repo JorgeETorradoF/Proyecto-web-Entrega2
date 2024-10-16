@@ -12,9 +12,9 @@ import lombok.Setter;
 public class PropiedadDTO extends PropiedadTemplate{
     public PropiedadDTO(int idArrendador, String nombrePropiedad, String departamento, String municipio, 
     String tipoIngreso, String descripcion, int cantidadHabitaciones, int cantidadBaños, 
-    boolean permiteMascotas, boolean tienePiscina, boolean tieneAsador, float valorNoche) 
+    boolean permiteMascotas, boolean tienePiscina, boolean tieneAsador, float valorNoche, String urlImagen) 
     {
         super(idArrendador, nombrePropiedad, departamento, municipio, tipoIngreso, descripcion, 
-        cantidadHabitaciones, cantidadBaños, permiteMascotas, tienePiscina, tieneAsador, valorNoche);    
+        cantidadHabitaciones, cantidadBaños, permiteMascotas, tienePiscina, tieneAsador, valorNoche, urlImagen);    
     }
 }

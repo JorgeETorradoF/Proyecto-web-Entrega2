@@ -24,4 +24,5 @@ public class PropiedadTemplate {
     protected boolean tienePiscina;
     protected boolean tieneAsador;
     protected float valorNoche;
+    protected String urlImagen;
 }

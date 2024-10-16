@@ -1,0 +1,58 @@
+.container {
+    background-image: url('../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
+    background-size: cover;  /* Cubre todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    padding: 20px;
+    color: white; /* Cambia el color del texto para que sea legible sobre la imagen */
+    min-height: 100vh; /* Asegúrate de que el contenedor tenga suficiente altura para mostrar el fondo */
+}
+
+.propiedad-card {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para legibilidad */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    color: white; /* Color del texto dentro de la tarjeta de propiedad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar relieve a las tarjetas */
+}
+
+h2 {
+    color: black;
+    text-align: center; /* Centra el título */
+    font-size: 2em; /* Aumenta el tamaño del título */
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #007bff; /* Color de fondo de los botones */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al hacer hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo de los botones al pasar el ratón */
+}
+
+button:focus {
+    outline: none; /* Quitar el borde de enfoque del botón */
+    box-shadow: 0 0 5px #0056b3; /* Sombra alrededor del botón cuando está enfocado */
+}
+
+p {
+    margin: 5px 0; /* Espaciado entre los párrafos */
+}
+
+strong {
+    font-weight: bold; /* Asegura que el texto en negrita tenga más peso */
+}
+img {
+    width: 150px; 
+    height: 150px;
+    display: block;
+}
+

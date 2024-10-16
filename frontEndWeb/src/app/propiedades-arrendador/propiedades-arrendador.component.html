@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Propiedades del Arrendador</h2>
+
+  <button (click)="agregarPropiedad()">Agregar Propiedad</button>
+
+  <div *ngIf="propiedades.length === 0; else contratosList">
+    <p>No hay propiedades disponibles.</p>
+  </div>
+  <ng-template #contratosList>
+    <div *ngFor="let propiedad of propiedades" class="propiedad-card">
+      <img [src]="propiedad.urlImagen" alt="Imagen descriptiva de la propiedad" class="propiedad-imagen" />
+
+      <p><strong>Nombre:</strong> {{ propiedad.nombrePropiedad }}</p>
+      <p><strong>Departamento:</strong> {{ propiedad.departamento }}</p>
+      <p><strong>Municipio:</strong> {{ propiedad.municipio }}</p>
+
+      <a (click)="editarPropiedad(propiedad.id)">Editar</a> |
+      <a (click)="verDetallePropiedad(propiedad.id)">Ver Detalle</a>
+    </div>
+  </ng-template>
+</div>

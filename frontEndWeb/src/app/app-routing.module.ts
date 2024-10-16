@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component'; // Componente de login
 import { ContratosArrendatarioComponent } from './contratos-arrendatario/contratos-arrendatario.component';
 import { PrincipalArrendadorComponent } from './principal-arrendador/principal-arrendador.component';
 import { PrincipalArrendatarioComponent } from './principal-arrendatario/principal-arrendatario.component';
+import { PropiedadesArrendadorComponent } from './propiedades-arrendador/propiedades-arrendador.component';
+import { CrearPropiedadComponent } from './propiedades-arrendador/crear-propiedad/crear-propiedad.component'; // Importar el componente
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'arrendatario/:idArrendatario/contratos', component: ContratosArrendatarioComponent},
   { path: 'arrendador/:idArrendador', component: PrincipalArrendadorComponent },
   { path: 'arrendatario/:idArrendatario', component: PrincipalArrendatarioComponent },
+  { path: 'arrendador/:idArrendador/propiedades', component: PropiedadesArrendadorComponent },
+  { path: 'arrendador/:idArrendador/crear-propiedad', component: CrearPropiedadComponent }
   // Otras rutas...
 ];
 

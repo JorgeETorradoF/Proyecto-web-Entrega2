@@ -58,7 +58,8 @@ class ControladorArrendadorTest {
             true,
             false,
             true,
-            120.50f
+            120.50f,
+            "https://i.imgur.com/dLG5eKJ.png"
         );
 
         propRet = new Propiedades(
@@ -74,7 +75,8 @@ class ControladorArrendadorTest {
             true,
             false,
             true,
-            120.50f
+            120.50f,
+            "https://i.imgur.com/dLG5eKJ.png"
         );
     }
 
