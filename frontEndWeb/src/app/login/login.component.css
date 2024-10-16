@@ -46,16 +46,17 @@ a{
     position: relative;
     width: 400px;
     height: 440px;
-    background: transparent;
-    border: 2px solid var(--background);
+    background: white; /* Cambiado a blanco */
+    border: 2px solid var(--maincolor); /* Ajustado al color principal */
     border-radius: 20px;
-    backdrop-filter: blur(20px);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px; /* Sombra para resaltar */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     transition: height .2s ease;
+    padding: 20px; /* Añadido espacio alrededor del formulario */
 }
 
 .wrapper1.active{

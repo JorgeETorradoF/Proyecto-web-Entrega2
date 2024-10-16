@@ -72,4 +72,17 @@ public class ServicioLogin {
         }
         return respuesta;
     }
+
+    @Autowired
+    private ServicioLogin servicioLogin;
+
+    @PostMapping("/login")
+    public ResponseEntity<RespuestaLoginDTO> login(@RequestBody LoginDTO loginDTO) {
+        try {
+            RespuestaLoginDTO respuesta = servicioLogin.loginUser(loginDTO);
+            return ResponseEntity.ok(respuesta);
+        } catch (CorreoNoExistenteException e) {
+            return ResponseEntity.status(404).body(new RespuestaLoginDTO(0, false));
+        }
+    }
 }
