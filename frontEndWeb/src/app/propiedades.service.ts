@@ -38,12 +38,12 @@ export class PropiedadesService {
 
   // Crear nueva propiedad sin imagen
   crearPropiedad(idArrendador: number, propiedad: Propiedad): Observable<Propiedad> {
-    return this.http.post<Propiedad>(`${this.baseUrl}/api/arrendador/${idArrendador}/registrar-propiedad`, propiedad);
+    return this.http.post<Propiedad>(`${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`, propiedad);
   }
 
   // Crear nueva propiedad con imagen
   crearPropiedadConImagen(idArrendador: number, formData: FormData): Observable<any> {
-    return this.http.post(`${this.baseUrl}/api/arrendador/${idArrendador}/registrar-propiedad`, formData);
+    return this.http.post(`${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`, formData);
   }
 
   // Editar propiedad existente

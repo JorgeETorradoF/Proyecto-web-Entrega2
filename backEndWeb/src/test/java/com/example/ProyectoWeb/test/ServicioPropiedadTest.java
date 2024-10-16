@@ -40,7 +40,8 @@ class ServicioPropiedadTest {
     private PropiedadDTO propiedadDTO;
 
     @BeforeEach
-   void setUp() {
+    void setUp() {
+        // Inicializar el DTO con los nuevos campos estado y urlImagen
         propiedadDTO = new PropiedadDTO();
         propiedadDTO.setIdArrendador(1);
         propiedadDTO.setNombrePropiedad("Casa Bonita");
@@ -49,17 +50,19 @@ class ServicioPropiedadTest {
         propiedadDTO.setTipoIngreso("Alquiler");
         propiedadDTO.setDescripcion("Una casa bonita en Medellín");
         propiedadDTO.setCantidadHabitaciones(3);
-        propiedadDTO.setCantidadBaños(2);
+        propiedadDTO.setCantidadBanos(2);
         propiedadDTO.setValorNoche(100000);
+        propiedadDTO.setEstado("activo"); // Estado agregado
+        propiedadDTO.setUrlImagen("http://example.com/imagen.jpg"); // URL de la imagen agregada
     }
 
     @Test
-   void testCheckCamposPropiedad_AllFieldsValid() {
+    void testCheckCamposPropiedad_AllFieldsValid() {
         assertTrue(servicioPropiedad.checkCamposPropiedad(propiedadDTO));
     }
 
     @Test
-   void testCheckCamposPropiedad_NullDTO() {
+    void testCheckCamposPropiedad_NullDTO() {
         assertFalse(servicioPropiedad.checkCamposPropiedad(null));
     }
 
@@ -128,6 +131,7 @@ class ServicioPropiedadTest {
             servicioPropiedad.modifyPropiedad(propiedadDTO, 1);
         });
     }
+
     @Test
     void testGetPropiedades() {
         // Datos de prueba
@@ -140,5 +144,4 @@ class ServicioPropiedadTest {
         assertTrue(propiedades.iterator().hasNext());
         verify(repositorioPropiedades, times(1)).getAllById(anyInt());
     }
-
 }

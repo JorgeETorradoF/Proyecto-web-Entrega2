@@ -1,4 +1,5 @@
 package com.example.ProyectoWeb.test;
+
 import com.example.ProyectoWeb.dto.PropiedadDTO;
 import com.example.ProyectoWeb.exception.CamposInvalidosException;
 import com.example.ProyectoWeb.exception.PropNoEncontradaException;
@@ -15,7 +16,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -24,11 +27,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
-
 class ControladorArrendadorTest {
 
     @Mock
     private ServicioPropiedad servicioPropiedad;
+    
     @Mock
     private ServicioContratos servicioContratos;
 
@@ -45,7 +48,7 @@ class ControladorArrendadorTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
 
-        // Inicializar los objetos con valores específicos
+        // Inicializar los objetos con valores específicos, incluyendo estado y urlImagen
         propiedadDTO = new PropiedadDTO(
             1,
             "casa del shitpost",
@@ -59,7 +62,8 @@ class ControladorArrendadorTest {
             false,
             true,
             120.50f,
-            "https://i.imgur.com/dLG5eKJ.png"
+            "activo", // Estado
+            "http://example.com/imagen.jpg" // URL de la imagen
         );
 
         propRet = new Propiedades(
@@ -76,18 +80,38 @@ class ControladorArrendadorTest {
             false,
             true,
             120.50f,
-            "https://i.imgur.com/dLG5eKJ.png"
+            "activo", // Estado
+            "http://example.com/imagen.jpg" // URL de la imagen
         );
     }
 
     @Test
-    void testRegistrarPropiedad() throws PropRegistradaException, CamposInvalidosException {
+    void testRegistrarPropiedadConImagen() throws Exception {
         int id = 1;
         propiedadDTO.setIdArrendador(id);
 
+        // Crear un archivo de imagen ficticio
+        MultipartFile imagen = new MockMultipartFile("imagen", "test-image.jpg", "image/jpeg", new byte[]{1, 2, 3});
+
         when(servicioPropiedad.savePropiedad(any(PropiedadDTO.class))).thenReturn(propRet);
 
-        ResponseEntity<?> response = controladorArrendador.registrarPropiedad(id, model, propiedadDTO);
+        ResponseEntity<?> response = controladorArrendador.registrarPropiedad(id, propiedadDTO, imagen, model);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(propRet, response.getBody());
+    }
+
+    @Test
+    void testRegistrarPropiedadSinImagen() throws Exception {
+        int id = 1;
+        propiedadDTO.setIdArrendador(id);
+
+        // Enviar un archivo vacío para probar la ruta sin imagen
+        MultipartFile imagen = new MockMultipartFile("imagen", "", "image/jpeg", new byte[0]);
+
+        when(servicioPropiedad.savePropiedad(any(PropiedadDTO.class))).thenReturn(propRet);
+
+        ResponseEntity<?> response = controladorArrendador.registrarPropiedad(id, propiedadDTO, imagen, model);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(propRet, response.getBody());
@@ -101,20 +125,23 @@ class ControladorArrendadorTest {
 
         when(servicioPropiedad.modifyPropiedad(any(PropiedadDTO.class), eq(propId))).thenReturn(propRet);
 
-        ResponseEntity<?> response = controladorArrendador.modificarPropiedad(id, propId, model, propiedadDTO);
+        ResponseEntity<?> response = controladorArrendador.modificarPropiedad(id, propId, propiedadDTO, model);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(propRet, response.getBody());
     }
 
     @Test
-    void testRegistrarPropiedadException() throws PropRegistradaException, CamposInvalidosException {
+    void testRegistrarPropiedadException() throws Exception {
         int id = 1;
         propiedadDTO.setIdArrendador(id);
 
+        // Crear un archivo de imagen ficticio
+        MultipartFile imagen = new MockMultipartFile("imagen", "test-image.jpg", "image/jpeg", new byte[]{1, 2, 3});
+
         when(servicioPropiedad.savePropiedad(any(PropiedadDTO.class))).thenThrow(new RuntimeException("Error"));
 
-        ResponseEntity<?> response = controladorArrendador.registrarPropiedad(id, model, propiedadDTO);
+        ResponseEntity<?> response = controladorArrendador.registrarPropiedad(id, propiedadDTO, imagen, model);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("Error al registrar la propiedad: Error", response.getBody());
@@ -128,11 +155,12 @@ class ControladorArrendadorTest {
 
         when(servicioPropiedad.modifyPropiedad(any(PropiedadDTO.class), eq(propId))).thenThrow(new RuntimeException("Error"));
 
-        ResponseEntity<?> response = controladorArrendador.modificarPropiedad(id, propId, model, propiedadDTO);
+        ResponseEntity<?> response = controladorArrendador.modificarPropiedad(id, propId, propiedadDTO, model);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("Error al modificar la propiedad: Error", response.getBody());
     }
+
     @Test
     void testMostrarDetallePropiedad() throws PropNoEncontradaException {
         int id = 1;
@@ -158,6 +186,7 @@ class ControladorArrendadorTest {
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("Error al obtener la propiedad: No encontrada", response.getBody());
     }
+
     @Test
     void testGetAllProperties() {
         int id = 1;
@@ -170,6 +199,7 @@ class ControladorArrendadorTest {
 
         assertEquals(propiedades, response);
     }
+
     @Test
     void testGetContratos() {
         int id = 1;
@@ -180,7 +210,5 @@ class ControladorArrendadorTest {
         Iterable<Contratos> response = controladorArrendador.getContratos(id, model);
 
         assertEquals(contratos, response);
-}
-
-
+    }
 }

@@ -19,10 +19,9 @@ public class PropiedadTemplate {
     protected String tipoIngreso;
     protected String descripcion;
     protected int cantidadHabitaciones;
-    protected int cantidadBaños;
+    protected int cantidadBanos;
     protected boolean permiteMascotas;
     protected boolean tienePiscina;
     protected boolean tieneAsador;
     protected float valorNoche;
-    protected String urlImagen;
 }
