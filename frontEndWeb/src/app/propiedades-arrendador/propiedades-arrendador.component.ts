@@ -51,9 +51,11 @@ export class PropiedadesArrendadorComponent implements OnInit {
   }
 
   // Método para agregar una nueva propiedad (redirige a la pantalla de creación)
+
   agregarPropiedad() {
-    this.router.navigate(['/arrendador/crear-propiedad']); // Navega a la vista de creación de propiedad
+  this.router.navigate([`/arrendador/${this.idArrendador}/propiedades/crear-propiedad`]); // Navega a la vista de creación de propiedad con el idArrendador
   }
+
 
   // Método para redirigir a la pantalla de edición de propiedad
   editarPropiedad(idPropiedad: number) {

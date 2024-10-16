@@ -50,7 +50,7 @@ class ServicioPropiedadTest {
         propiedadDTO.setTipoIngreso("Alquiler");
         propiedadDTO.setDescripcion("Una casa bonita en Medellín");
         propiedadDTO.setCantidadHabitaciones(3);
-        propiedadDTO.setCantidadBaños(2);
+        propiedadDTO.setCantidadBanos(2);
         propiedadDTO.setValorNoche(100000);
         propiedadDTO.setEstado("activo"); // Estado agregado
         propiedadDTO.setUrlImagen("http://example.com/imagen.jpg"); // URL de la imagen agregada

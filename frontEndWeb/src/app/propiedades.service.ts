@@ -28,7 +28,7 @@ export class PropiedadesService {
 
   // Método para configurar la IP del servidor backend
   setIp(ip: string) {
-    this.baseUrl = `http://${ip}/api`; // Define la base URL con la IP
+    this.baseUrl = `http://${ip}/api`;
   }
 
   // Obtener propiedades del arrendador
@@ -41,10 +41,13 @@ export class PropiedadesService {
     return this.http.post<Propiedad>(`${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`, propiedad);
   }
 
-  // Crear nueva propiedad con imagen
   crearPropiedadConImagen(idArrendador: number, formData: FormData): Observable<any> {
-    return this.http.post(`${this.baseUrl}/api/arrendador/${idArrendador}/registrar-propiedad`, formData);
+    console.log('Base URL:', this.baseUrl);
+    const url = `${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`;
+    console.log('POST URL:', url);
+    return this.http.post(url, formData);
   }
+
 
   // Editar propiedad existente
   editarPropiedad(idPropiedad: number, propiedad: Propiedad): Observable<Propiedad> {

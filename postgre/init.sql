@@ -27,7 +27,7 @@ CREATE TABLE public.propiedades (
     tipo_ingreso VARCHAR(50) NOT NULL, 
     descripcion TEXT NOT NULL,
     cantidad_habitaciones INTEGER NOT NULL,
-    cantidad_baños INTEGER NOT NULL,
+    cantidad_banos INTEGER NOT NULL,
     permite_mascotas BOOLEAN NOT NULL,
     tiene_piscina BOOLEAN NOT NULL,
     tiene_asador BOOLEAN NOT NULL,

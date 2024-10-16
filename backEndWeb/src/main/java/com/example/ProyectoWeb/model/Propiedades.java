@@ -25,15 +25,16 @@ public class Propiedades extends PropiedadTemplate{
     private String urlImagen; 
 
     public Propiedades(int id, int idArrendador, String nombrePropiedad, String departamento, String municipio,
-                       String tipoIngreso, String descripcion, int cantidadHabitaciones, int cantidadBaños, 
+                       String tipoIngreso, String descripcion, int cantidadHabitaciones, int cantidadBanos, 
                        boolean permiteMascotas, boolean tienePiscina, boolean tieneAsador, float valorNoche,
                        String estado, String urlImagen) 
     {
         super(idArrendador, nombrePropiedad, departamento, municipio, tipoIngreso, descripcion, 
-              cantidadHabitaciones, cantidadBaños, permiteMascotas, tienePiscina, tieneAsador, valorNoche);
+              cantidadHabitaciones, cantidadBanos, permiteMascotas, tienePiscina, tieneAsador, valorNoche);
         this.id = id;
         this.estado = estado; 
         this.urlImagen = urlImagen; 
     }
+    
 }
 

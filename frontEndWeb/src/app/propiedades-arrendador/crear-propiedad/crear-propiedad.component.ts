@@ -15,7 +15,7 @@ interface Propiedad {
   permiteMascotas: boolean;
   tienePiscina: boolean;
   tieneAsador: boolean;
-  urlImagen: string; // Para la imagen pequeña descriptiva
+  urlImagen: string;
 }
 
 @Component({
@@ -31,18 +31,18 @@ export class CrearPropiedadComponent implements OnInit {
     valorNoche: 0,
     departamento: '',
     municipio: '',
-    tipoIngreso: '', // Campo obligatorio para tipo de ingreso
-    cantidadHabitaciones: 1, // Inicializa con un valor mínimo
-    cantidadBanos: 1, // Inicializa con un valor mínimo
+    tipoIngreso: '',
+    cantidadHabitaciones: 1,
+    cantidadBanos: 1,
     permiteMascotas: false,
     tienePiscina: false,
     tieneAsador: false,
-    urlImagen: '' // Campo de imagen predeterminado
+    urlImagen: ''
   };
 
-  idArrendador!: number; // ID del arrendador, se obtiene de la URL
-  selectedFile: File | null = null; // Variable para almacenar el archivo seleccionado
-  imagenSeleccionada: string | ArrayBuffer | null = null; // Para mostrar la vista previa de la imagen seleccionada
+  idArrendador!: number;
+  selectedFile: File | null = null;
+  imagenSeleccionada: string | ArrayBuffer | null = null;
 
   constructor(
     private propiedadesService: PropiedadesService,
@@ -51,7 +51,7 @@ export class CrearPropiedadComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Obtener el ID del arrendador desde la URL
+    this.propiedadesService.setIp('localhost');
     this.idArrendador = +this.route.snapshot.paramMap.get('idArrendador')!;
   }
 
@@ -70,7 +70,6 @@ export class CrearPropiedadComponent implements OnInit {
 
   // Método para crear una propiedad nueva
   crearPropiedad() {
-    // Validaciones simples
     if (
       this.propiedad.nombrePropiedad === '' ||
       this.propiedad.departamento === '' ||
@@ -81,46 +80,61 @@ export class CrearPropiedadComponent implements OnInit {
       return;
     }
 
-    // Crear FormData para enviar la imagen junto con los datos de la propiedad
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('imagen', this.selectedFile); // Subimos la imagen
-      formData.append('nombrePropiedad', this.propiedad.nombrePropiedad);
-      formData.append('descripcion', this.propiedad.descripcion);
-      formData.append('valorNoche', this.propiedad.valorNoche.toString());
-      formData.append('departamento', this.propiedad.departamento);
-      formData.append('municipio', this.propiedad.municipio);
-      formData.append('tipoIngreso', this.propiedad.tipoIngreso);
-      formData.append('cantidadHabitaciones', this.propiedad.cantidadHabitaciones.toString());
-      formData.append('cantidadBanos', this.propiedad.cantidadBanos.toString());
-      formData.append('permiteMascotas', this.propiedad.permiteMascotas.toString());
-      formData.append('tienePiscina', this.propiedad.tienePiscina.toString());
-      formData.append('tieneAsador', this.propiedad.tieneAsador.toString());
-
-      // Llama al servicio para crear la propiedad con la imagen
-      this.propiedadesService.crearPropiedadConImagen(this.idArrendador, formData).subscribe(
-        data => {
-          console.log('Propiedad creada:', data);
-          // Redirigir a la lista de propiedades después de crearla
-          this.router.navigate([`/arrendador/${this.idArrendador}/propiedades`]);
-        },
-        error => {
-          console.error('Error al crear propiedad:', error);
-        }
-      );
-    } else {
+    // Si no se selecciona la imagen
+    if (!this.selectedFile) {
       console.error('Error: No se ha seleccionado ninguna imagen');
+      return;
     }
+
+    // Crear FormData para enviar la imagen junto con los datos de la propiedad
+    const formData = new FormData();
+    formData.append('imagen', this.selectedFile);
+
+    // Inicializa los campos booleanos si no están seleccionados
+    this.propiedad.permiteMascotas = this.propiedad.permiteMascotas || false;
+    this.propiedad.tienePiscina = this.propiedad.tienePiscina || false;
+    this.propiedad.tieneAsador = this.propiedad.tieneAsador || false;
+
+    // Crea el objeto propiedadDTO y lo agrega a formData
+    const propiedadDTO = {
+      nombrePropiedad: this.propiedad.nombrePropiedad.trim(),
+      descripcion: this.propiedad.descripcion ? this.propiedad.descripcion.trim() : '',
+      valorNoche: this.propiedad.valorNoche ? this.propiedad.valorNoche.toString() : '0',
+      departamento: this.propiedad.departamento.trim(),
+      municipio: this.propiedad.municipio.trim(),
+      tipoIngreso: this.propiedad.tipoIngreso.trim(),
+      cantidadHabitaciones: this.propiedad.cantidadHabitaciones ? this.propiedad.cantidadHabitaciones.toString() : '1',
+      cantidadBanos: this.propiedad.cantidadBanos ? this.propiedad.cantidadBanos.toString() : '0',
+      permiteMascotas: this.propiedad.permiteMascotas ? this.propiedad.permiteMascotas.toString() : 'false',
+      tienePiscina: this.propiedad.tienePiscina ? this.propiedad.tienePiscina.toString() : 'false',
+      tieneAsador: this.propiedad.tieneAsador ? this.propiedad.tieneAsador.toString() : 'false',
+   };
+
+
+    formData.append('propiedadDTO', new Blob([JSON.stringify(propiedadDTO)], { type: "application/json" }));
+
+    // Llama al servicio para crear la propiedad con la imagen y los datos
+    this.propiedadesService.crearPropiedadConImagen(this.idArrendador, formData).subscribe(
+      data => {
+        console.log('Propiedad creada:', data);
+        // Redirigir a la lista de propiedades después de crearla
+        this.router.navigate([`/arrendador/${this.idArrendador}/propiedades`]);
+      },
+      error => {
+        console.error('Error al crear propiedad:', error);
+      }
+    );
   }
+
 
   // Método que se invocará al enviar el formulario
   onSubmit() {
-    this.crearPropiedad(); // Invoca el método para crear la propiedad
+    this.crearPropiedad();
   }
 
   // Método para cambiar la imagen seleccionada
   cambiarImagen() {
     this.imagenSeleccionada = null;
-    this.selectedFile = null; // Permite al usuario cambiar la imagen seleccionada
+    this.selectedFile = null;
   }
 }
