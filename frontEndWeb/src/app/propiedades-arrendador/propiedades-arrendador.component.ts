@@ -59,11 +59,10 @@ export class PropiedadesArrendadorComponent implements OnInit {
 
   // Método para redirigir a la pantalla de edición de propiedad
   editarPropiedad(idPropiedad: number) {
-    this.router.navigate([`/arrendador/editar-propiedad/${idPropiedad}`]); // Navega a la vista de edición
+    this.router.navigate([`/arrendador/${this.idArrendador}/propiedades/editar-propiedad/${idPropiedad}`]);
   }
 
-  // Método para ver el detalle de una propiedad
   verDetallePropiedad(idPropiedad: number) {
-    this.router.navigate([`/arrendador/detalle-propiedad/${idPropiedad}`]); // Navega a la vista de detalles
+    this.router.navigate([`/arrendador/${this.idArrendador}/propiedades/detalle-propiedad/${idPropiedad}`]);
   }
 }

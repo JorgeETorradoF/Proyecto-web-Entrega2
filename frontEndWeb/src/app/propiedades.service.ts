@@ -48,7 +48,6 @@ export class PropiedadesService {
     return this.http.post(url, formData);
   }
 
-
   // Editar propiedad existente
   editarPropiedad(idPropiedad: number, propiedad: Propiedad): Observable<Propiedad> {
     return this.http.put<Propiedad>(`${this.baseUrl}/arrendador/modificar-propiedad/${idPropiedad}`, propiedad);
@@ -58,6 +57,13 @@ export class PropiedadesService {
   eliminarPropiedad(idPropiedad: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/propiedades/${idPropiedad}`);
   }
+
+  // propiedades.service.ts
+  obtenerPropiedad(idArrendador: number, idPropiedad: number) {
+  const url = `http://localhost/api/arrendador/${idArrendador}/propiedad/${idPropiedad}`;
+  return this.http.get(url);
+  }
+
 }
 
 
