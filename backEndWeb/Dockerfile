@@ -9,7 +9,8 @@ COPY . /app
 
 # Da permisos de ejecución al script testear_y_generar_jacoco.sh
 RUN chmod u+x /app/testear_y_generar_jacoco.sh \
-    && chmod u+x /app/mandarAlSonarqube.sh
+    && chmod u+x /app/mandarAlSonarqube.sh \
+    && chmod u+x /app/mvnw
 
 # Construye el archivo JAR de la aplicación
 RUN ./mvnw clean install -DskipTests
