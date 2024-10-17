@@ -22,13 +22,13 @@ interface Propiedad {
   providedIn: 'root'
 })
 export class PropiedadesService {
-  private baseUrl: string = ''; // Inicialmente vacío
+  private baseUrl: string = 'localhost'; // Inicialmente vacío
 
   constructor(private http: HttpClient) {}
 
   // Método para configurar la IP del servidor backend
   setIp(ip: string) {
-    this.baseUrl = `http://${ip}/api`; // Define la base URL con la IP
+    this.baseUrl = `http://${ip}/api`;
   }
 
   // Obtener propiedades del arrendador
@@ -41,20 +41,38 @@ export class PropiedadesService {
     return this.http.post<Propiedad>(`${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`, propiedad);
   }
 
-  // Crear nueva propiedad con imagen
   crearPropiedadConImagen(idArrendador: number, formData: FormData): Observable<any> {
-    return this.http.post(`${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`, formData);
+    console.log('Base URL:', this.baseUrl);
+    const url = `${this.baseUrl}/arrendador/${idArrendador}/registrar-propiedad`;
+    console.log('POST URL:', url);
+    return this.http.post(url, formData);
   }
 
-  // Editar propiedad existente
-  editarPropiedad(idPropiedad: number, propiedad: Propiedad): Observable<Propiedad> {
-    return this.http.put<Propiedad>(`${this.baseUrl}/arrendador/modificar-propiedad/${idPropiedad}`, propiedad);
+  // Obtener los detalles de una propiedad específica
+  getPropiedad(idArrendador: number, idPropiedad: number): Observable<Propiedad> {
+    return this.http.get<Propiedad>(
+      `${this.baseUrl}/arrendador/${idArrendador}/propiedad/${idPropiedad}`,
+      { responseType: 'json' }
+    );
   }
+
+
+  editarPropiedad(idArrendador: number, idPropiedad: number, propiedad: any): Observable<any> {
+    const url = `${this.baseUrl}/arrendador/${idArrendador}/modificar-propiedad/${idPropiedad}`;
+    return this.http.put(url, propiedad, { headers: { 'Content-Type': 'application/json' } });
+  }
+
 
   // Eliminar propiedad
   eliminarPropiedad(idPropiedad: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/propiedades/${idPropiedad}`);
   }
+  // propiedades.service.ts
+  obtenerPropiedad(idArrendador: number, idPropiedad: number) {
+  const url = `${this.baseUrl}/arrendador/${idArrendador}/propiedad/${idPropiedad}`;
+  return this.http.get(url);
+  }
+
 }
 
 

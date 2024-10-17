@@ -31,8 +31,9 @@ CREATE TABLE public.propiedades (
     permite_mascotas BOOLEAN NOT NULL,
     tiene_piscina BOOLEAN NOT NULL,
     tiene_asador BOOLEAN NOT NULL,
-    valor_noche NUMERIC(10,2),
-    url_imagen TEXT
+    estado VARCHAR(20) DEFAULT 'activo', 
+    url_imagen TEXT, 
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
     
 );
 

@@ -11,6 +11,8 @@ import { ContratosArrendatarioComponent } from './contratos-arrendatario/contrat
 import { PropiedadesArrendadorComponent } from './propiedades-arrendador/propiedades-arrendador.component';
 import { CrearPropiedadComponent } from './propiedades-arrendador/crear-propiedad/crear-propiedad.component';
 import { LoginRegisterComponent } from './login-register/login-register.component'; 
+import { DetallePropiedadComponent } from './propiedades-arrendador/detalle-propiedad/detalle-propiedad.component';
+import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propiedad/editar-propiedad.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,10 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
     ContratosArrendatarioComponent, // Componente de contratos de arrendatario
     CrearPropiedadComponent,        // componente de crear propiedades
     PropiedadesArrendadorComponent, //  componente de propiedades
-    LoginRegisterComponent          //login y registro
+    LoginRegisterComponent,          //login y registro
+    DetallePropiedadComponent,
+    EditarPropiedadComponent,
+    CrearPropiedadComponent,
   ],
   imports: [
     BrowserModule,                // Requerido para aplicaciones en el navegador

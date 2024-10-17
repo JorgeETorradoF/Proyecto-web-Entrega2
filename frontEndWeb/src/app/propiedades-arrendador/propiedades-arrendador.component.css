@@ -50,9 +50,11 @@ p {
 strong {
     font-weight: bold; /* Asegura que el texto en negrita tenga más peso */
 }
-img {
-    width: 150px; 
+.propiedad-imagen {
+    width: 150px;
     height: 150px;
-    display: block;
-}
+    object-fit: cover; /* Ajusta la imagen para que cubra el espacio sin deformarse */
+    border-radius: 8px; /* Opcional: añade bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: añade una sombra para un mejor efecto visual */
+  }
 

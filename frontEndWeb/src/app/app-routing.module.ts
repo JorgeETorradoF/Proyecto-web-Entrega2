@@ -7,6 +7,8 @@ import { PrincipalArrendadorComponent } from './principal-arrendador/principal-a
 import { PrincipalArrendatarioComponent } from './principal-arrendatario/principal-arrendatario.component';
 import { PropiedadesArrendadorComponent } from './propiedades-arrendador/propiedades-arrendador.component';
 import { CrearPropiedadComponent } from './propiedades-arrendador/crear-propiedad/crear-propiedad.component'; // Importar el componente
+import { DetallePropiedadComponent } from './propiedades-arrendador/detalle-propiedad/detalle-propiedad.component';
+import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propiedad/editar-propiedad.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,8 +18,9 @@ const routes: Routes = [
   { path: 'arrendador/:idArrendador', component: PrincipalArrendadorComponent },
   { path: 'arrendatario/:idArrendatario', component: PrincipalArrendatarioComponent },
   { path: 'arrendador/:idArrendador/propiedades', component: PropiedadesArrendadorComponent },
-  { path: 'arrendador/:idArrendador/crear-propiedad', component: CrearPropiedadComponent }
-  // Otras rutas...
+  { path: 'arrendador/:idArrendador/propiedades/crear-propiedad', component: CrearPropiedadComponent },
+  { path: 'arrendador/:idArrendador/propiedades/detalle-propiedad/:idPropiedad', component: DetallePropiedadComponent},
+  { path: 'arrendador/:idArrendador/propiedades/editar-propiedad/:idPropiedad', component: EditarPropiedadComponent}
 ];
 
 @NgModule({

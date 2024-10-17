@@ -37,6 +37,9 @@ export class PropiedadesArrendadorComponent implements OnInit {
     this.obtenerPropiedades();
   }
 
+  getImagenUrl(nombreImagen: string): string {
+    return `http://${this.ip}${nombreImagen}`;
+  }
   // Método para obtener las propiedades del arrendador desde el servicio
   obtenerPropiedades() {
     this.propiedadesService.getPropiedadesArrendador(this.idArrendador).subscribe(
@@ -51,17 +54,18 @@ export class PropiedadesArrendadorComponent implements OnInit {
   }
 
   // Método para agregar una nueva propiedad (redirige a la pantalla de creación)
+
   agregarPropiedad() {
-    this.router.navigate([`/arrendador/${this.idArrendador}/crear-propiedad`]); // Navega a la vista de creación de propiedad
+  this.router.navigate([`/arrendador/${this.idArrendador}/propiedades/crear-propiedad`]); // Navega a la vista de creación de propiedad con el idArrendador
   }
+
 
   // Método para redirigir a la pantalla de edición de propiedad
   editarPropiedad(idPropiedad: number) {
-    this.router.navigate([`/arrendador/editar-propiedad/${idPropiedad}`]); // Navega a la vista de edición
+    this.router.navigate([`/arrendador/${this.idArrendador}/propiedades/editar-propiedad/${idPropiedad}`]);
   }
 
-  // Método para ver el detalle de una propiedad
   verDetallePropiedad(idPropiedad: number) {
-    this.router.navigate([`/arrendador/detalle-propiedad/${idPropiedad}`]); // Navega a la vista de detalles
+    this.router.navigate([`/arrendador/${this.idArrendador}/propiedades/detalle-propiedad/${idPropiedad}`]);
   }
 }

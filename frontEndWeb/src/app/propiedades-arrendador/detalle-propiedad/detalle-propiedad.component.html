@@ -1,0 +1,24 @@
+<div class="container-detalle">
+  <div class="detalle-propiedad">
+    <h2>Detalle de la Propiedad</h2>
+
+    <img [src]="getImagenUrl(propiedad.urlImagen)" alt="Imagen de la propiedad" class="detalle-imagen" />
+
+    <p><strong>Nombre:</strong> {{ propiedad.nombrePropiedad }}</p>
+    <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
+    <p><strong>Valor por Noche:</strong> {{ propiedad.valorNoche | currency }}</p>
+    <p><strong>Departamento:</strong> {{ propiedad.departamento }}</p>
+    <p><strong>Municipio:</strong> {{ propiedad.municipio }}</p>
+    <p><strong>Tipo de Ingreso:</strong> {{ propiedad.tipoIngreso }}</p>
+    <p><strong>Cantidad de Habitaciones:</strong> {{ propiedad.cantidadHabitaciones }}</p>
+    <p><strong>Cantidad de Baños:</strong> {{ propiedad.cantidadBanos }}</p>
+    <p><strong>Mascotas Permitidas:</strong> {{ propiedad.permiteMascotas ? 'Sí' : 'No' }}</p>
+    <p><strong>Tiene Piscina:</strong> {{ propiedad.tienePiscina ? 'Sí' : 'No' }}</p>
+    <p><strong>Tiene Asador:</strong> {{ propiedad.tieneAsador ? 'Sí' : 'No' }}</p>
+  </div>
+
+  <div class="botones">
+    <button (click)="volver()">Volver</button>
+    <button (click)="editarPropiedad(propiedad.id)">Editar</button>
+  </div>
+</div>

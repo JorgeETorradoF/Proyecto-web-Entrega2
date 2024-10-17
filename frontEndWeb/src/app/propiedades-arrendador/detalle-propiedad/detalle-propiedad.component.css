@@ -1,0 +1,102 @@
+/* Contenedor principal centrado con fondo */
+.container-detalle {
+  background-image: url('../../../assets/images/finca.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  position: relative;
+}
+
+/* Tarjeta con detalles de la propiedad */
+.detalle-propiedad {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  animation: zoomIn 0.5s ease-out;
+}
+
+/* Efecto de Zoom para la tarjeta */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 24px;
+}
+
+/* Imagen de la propiedad */
+.detalle-imagen {
+  display: block;
+  margin: 10px auto;
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Estilo para los detalles */
+.detalle-propiedad p {
+  font-size: 18px;
+  margin: 5px 0;
+  color: white;
+  text-align: left;
+}
+
+.detalle-propiedad p strong {
+  color: #f1c40f;
+}
+
+/* Contenedor para los botones */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre los botones */
+  margin-top: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+
+/* Botones */
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px; /* Ancho fijo para evitar que se estiren demasiado */
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:nth-child(2) {
+  background-color: #2196F3;
+}
+
+button:nth-child(2):hover {
+  background-color: #0b7dda;
+}
