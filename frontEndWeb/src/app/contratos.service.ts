@@ -16,7 +16,7 @@ interface Contract {
   providedIn: 'root'
 })
 export class ContratosService {
-  private baseUrl: string = ''; // Inicialmente vacío
+  private baseUrl: string = 'localhost'; // Inicialmente vacío
 
   constructor(private http: HttpClient) {}
 
