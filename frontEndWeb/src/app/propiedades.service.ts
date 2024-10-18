@@ -22,7 +22,7 @@ interface Propiedad {
   providedIn: 'root'
 })
 export class PropiedadesService {
-  private baseUrl: string = 'localhost'; // Inicialmente vacío
+  private baseUrl: string = 'http://localhost/api'; // Inicialmente vacío
 
   constructor(private http: HttpClient) {}
 
