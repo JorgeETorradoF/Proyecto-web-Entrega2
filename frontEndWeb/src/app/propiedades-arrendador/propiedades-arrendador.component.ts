@@ -29,8 +29,6 @@ export class PropiedadesArrendadorComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Configura la IP del backend para las solicitudes
-    this.propiedadesService.setIp(this.ip);
 
     // Obtiene el id del arrendador desde la ruta (URL)
     this.idArrendador = +this.route.snapshot.paramMap.get('idArrendador')!;

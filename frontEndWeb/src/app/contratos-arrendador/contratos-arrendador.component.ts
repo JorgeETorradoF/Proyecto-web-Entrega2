@@ -20,13 +20,9 @@ interface Contract {
 export class ContratosArrendadorComponent implements OnInit {
   contratos: Contract[] = []; // Array para almacenar los contratos
   idArrendador!: number; // ID del arrendador
-  ip: string = 'localhost'; // se debe cambiar a la external ip de la máquina virtual si no es en vm dejemoslo localhost
-
   constructor(private route: ActivatedRoute, private contratosService: ContratosService) {}
 
   ngOnInit() {
-    // Se configura la IP en el servicio
-    this.contratosService.setIp(this.ip);
 
     // Obtener el ID del arrendador de la URL
     this.idArrendador = +this.route.snapshot.paramMap.get('idArrendador')!;

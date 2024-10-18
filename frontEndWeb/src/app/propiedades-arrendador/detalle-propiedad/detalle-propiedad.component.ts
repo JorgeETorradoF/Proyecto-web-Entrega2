@@ -18,7 +18,6 @@ export class DetallePropiedadComponent implements OnInit {
     private router: Router,
     private propiedadesService: PropiedadesService
   ) {
-    this.propiedadesService.setIp(this.ip);
   }
 
   ngOnInit(): void {

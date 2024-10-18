@@ -38,7 +38,6 @@ export class EditarPropiedadComponent implements OnInit {
     private router: Router,
     private propiedadesService: PropiedadesService
   ) {
-    propiedadesService.setIp(this.ip)
   }
 
   ngOnInit(): void {
