@@ -14,16 +14,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.ProyectoWeb.dto.ContratoDTO;
 import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.service.ServicioContratos;
+import com.example.ProyectoWeb.service.ServicioPropiedad;
 
 @Controller
 @RequestMapping("/api/arrendatario/{id}")
 public class ControladorArrendatario {
 
     private final ServicioContratos servicioContratos;
+    private final ServicioPropiedad servicioPropiedades;
 
-    public ControladorArrendatario(ServicioContratos servicioContratos)
+    public ControladorArrendatario(ServicioContratos servicioContratos, ServicioPropiedad servicioPropiedades)
     {
         this.servicioContratos = servicioContratos;
+        this.servicioPropiedades = servicioPropiedades;
     }
 
     @PostMapping(value = "/solicitar-arriendo/{idPropiedad}", consumes = "application/json", produces = "application/json")

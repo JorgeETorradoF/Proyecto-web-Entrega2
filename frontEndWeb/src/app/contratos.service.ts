@@ -11,12 +11,17 @@ interface Contract {
   estado: number;      
   precio: number;     
 }
+interface Solicitud {
+  fechaInicio: string; 
+  fechaFinal: string; 
+  enConflicto: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContratosService {
-  private baseUrl: string = 'localhost'; // Inicialmente vacío
+  private baseUrl: string = 'http://localhost/api'; // Inicialmente vacío
 
   constructor(private http: HttpClient) {}
 
@@ -45,5 +50,14 @@ export class ContratosService {
   // Método para obtener contratos por ID de arrendatario
   getContratosArrendatario(idArrendatario: number): Observable<Contract[]> {
     return this.http.get<Contract[]>(`${this.baseUrl}/arrendatario/${idArrendatario}/mis-contratos`);
+  }
+  
+  solicitarArriendo(idArrendatario: number,idProp: number, solicitud: Solicitud): Observable<Contract> {
+    return this.http.post<Contract>(`${this.baseUrl}/arrendatario/${idArrendatario}/solicitar-arriendo/${idProp}`, solicitud);
+  }
+  // Método para calificar al arrendador
+  calificarArrendador(calificacionData: { idContrato: number, calificacion: number, comentario: string }): Observable<any> {
+    const url = `${this.baseUrl}/arrendador/calificar`;
+    return this.http.post<any>(url, calificacionData);
   }
 }

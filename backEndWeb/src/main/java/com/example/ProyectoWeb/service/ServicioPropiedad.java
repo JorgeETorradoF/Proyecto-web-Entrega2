@@ -135,6 +135,10 @@ public class ServicioPropiedad {
         return repositorioPropiedades.getAllById(id);
     }
 
+    // Regresa un iterable que contiene todas las propiedades existentes
+    public Iterable<Propiedades> getAllPropiedades() {
+        return repositorioPropiedades.findAll();
+    }
     // Regresa una propiedad específica de un arrendador
     public Propiedades getPropiedad(int propId, int id) throws PropNoEncontradaException {
         if (repositorioPropiedades.propiedadPertenece(id, propId)) {

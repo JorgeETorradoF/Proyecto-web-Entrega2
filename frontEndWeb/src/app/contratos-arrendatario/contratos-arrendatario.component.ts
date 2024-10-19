@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContratosService } from '../contratos.service'; // Importa el servicio
 
 interface Contract {
@@ -20,7 +20,7 @@ interface Contract {
 export class ContratosArrendatarioComponent implements OnInit {
   contratos: Contract[] = []; // Array para almacenar los contratos
   idArrendatario!: number; // ID del Arrendatario
-  constructor(private route: ActivatedRoute, private contratosService: ContratosService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private contratosService: ContratosService) {}
 
   ngOnInit() {
 
@@ -55,11 +55,5 @@ export class ContratosArrendatarioComponent implements OnInit {
       default:
         return 'Desconocido'; // siempre estára entre los 3 primeros pero el compilador jode si no hay un default :'v
     }
-  }
-
-  // Método para redirigir a la pantalla solicitar un contrato
-  solicitarContrato()
-  {
-    
   }
 }

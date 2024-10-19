@@ -1,0 +1,45 @@
+<header>
+    <div class="container">
+      <h1>ArriendaTuFinca</h1>
+      <nav>
+        <a>Inicio</a>
+        <a routerLink="/solicitar-arriendo" routerLinkActive="active">Solicitar Arriendo</a>
+        <a routerLink="/calificar-arrendatario" routerLinkActive="active">Calificar Arrendatario</a>
+      </nav>
+    </div>
+  </header>
+  
+<div class="solicitar-arriendo fade-in">
+    <h2>Solicitar Arriendo</h2>
+    <div *ngIf="propiedad" class="propiedad-detalle">
+      <img [src]="propiedad.urlImagen" [alt]="propiedad.nombrePropiedad">
+      <h3>{{ propiedad.nombrePropiedad }}</h3>
+      <p>Ubicación: {{ propiedad.municipio }}, {{ propiedad.departamento }}</p>
+      <p>Precio: ${{ propiedad.valorNoche | number }} COP / noche</p>
+      <p>Capacidad: {{ propiedad.cantidadHabitaciones }} habitaciones / {{ propiedad.cantidadBanos }} baños</p>
+      <p>Permite Mascotas: {{ propiedad.permiteMascotas ? 'Sí' : 'No' }}</p>
+      <p>Tiene Piscina: {{ propiedad.tienePiscina ? 'Sí' : 'No' }}</p>
+      <p>Tiene Asador: {{ propiedad.tieneAsador ? 'Sí' : 'No' }}</p>
+      <p>{{ propiedad.descripcion }}</p>
+    </div>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="fechaInicial">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicial" [(ngModel)]="solicitud.fechaInicial" name="fechaInicial" required>
+      </div>
+  
+      <div>
+        <label for="fechaFinal">Fecha Final:</label>
+        <input type="date" id="fechaFinal" [(ngModel)]="solicitud.fechaFinal" name="fechaFinal" required>
+      </div>
+  
+      <div>
+        <label for="cantidadPersonas">Cantidad de Personas:</label>
+        <input type="number" id="cantidadPersonas" [(ngModel)]="solicitud.cantidadPersonas" name="cantidadPersonas" min="1" [max]="10" required>
+      </div>
+  
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+  </div>
+  

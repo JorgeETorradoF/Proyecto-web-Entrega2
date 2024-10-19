@@ -22,6 +22,7 @@ interface Propiedad {
   providedIn: 'root'
 })
 export class PropiedadesService {
+
   private baseUrl: string = 'http://localhost/api'; // Inicialmente vacío
 
   constructor(private http: HttpClient) {}
@@ -29,6 +30,10 @@ export class PropiedadesService {
   // Método para configurar la IP del servidor backend
   setIp(ip: string) {
     this.baseUrl = `http://${ip}/api`;
+  }
+
+  getAllPropiedades() {
+    return this.http.get<Propiedad[]>(`${this.baseUrl}/get-propiedades`);
   }
 
   // Obtener propiedades del arrendador

@@ -1,7 +1,5 @@
 <div class="container">
     <h2>Mis Contratos</h2>
-
-    <button (click)="solicitarContrato()" class="btn-solicitar-contrato">Solicitar Contrato</button>
     
     <div *ngIf="contratos.length === 0; else contratosList">
       <p>No hay contratos disponibles.</p> <!-- Mensaje si no hay contratos -->

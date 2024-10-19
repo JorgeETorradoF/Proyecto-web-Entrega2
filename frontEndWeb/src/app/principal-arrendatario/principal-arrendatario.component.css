@@ -1,45 +1,135 @@
-.container {
-  background-image: url('../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
-  background-size: cover;  /* Cubre todo el contenedor */
-  background-position: center; /* Centra la imagen */
-  padding: 20px;
-  color: white; /* Cambia el color del texto para que sea legible sobre la imagen */
-  min-height: 100vh; /* Asegúrate de que el contenedor tenga suficiente altura para mostrar el fondo */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 0;
 }
 
 .container {
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.button-container {
+header .container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
-h1 {
-color: black;
-text-align: center; /* Centra el título */
-font-size: 2em; /* Aumenta el tamaño del título */
-margin-bottom: 20px;
+nav {
+  display: flex;
+  gap: 1rem;
 }
 
-button {
-margin: 10px 0;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-color: white;
-background-color: #007bff; /* Color de fondo de los botones */
-cursor: pointer;
-transition: background-color 0.3s ease; /* Transición suave al hacer hover */
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-background-color: #0056b3; /* Color de fondo de los botones al pasar el ratón */
+nav a:hover, nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-button:focus {
-outline: none; /* Quitar el borde de enfoque del botón */
-box-shadow: 0 0 5px #0056b3; /* Sombra alrededor del botón cuando está enfocado */
+h1{
+  color:white;
+}
+
+.home {
+  text-align: center;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center; /* Center the search bar horizontally */
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Add a gap between input and button */
+  margin-bottom: 30px;
+  position: relative; /* Make the search bar the reference for absolute positioning */
+}
+
+
+.search-bar input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+}
+
+.suggestions-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: absolute;
+  width: 100%; /* Make it the same width as the search bar */
+  z-index: 1000;
+  top: calc(100% + 5px); /* Position it below the search bar, with a little gap (5px) */
+  left: 0; /* Align with the left side of the search bar */
+}
+
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #eee;
+}
+
+
+.propiedades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.propiedad-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  height: 90%; 
+  width: auto;
+}
+
+.propiedad-card img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.propiedad-card h3 {
+  margin-top: 10px;
+  color: var(--primary-color);
+}
+
+.btn-ver-detalle {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-ver-detalle:hover {
+  background-color: var(--hover-color);
 }

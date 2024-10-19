@@ -1,7 +1,40 @@
-<div class="container">
-    <h1>Pantalla Principal Arrendatario - ID: {{ idArrendatario }}</h1>
-    <div class="button-container">
-        <button (click)="navigateToVerContratos()">Ver Contratos</button>
-        <button (click)="navigateToCalificar()">Calificar</button>
+<header>
+  <div class="container">
+    <h1>ArriendaTuFinca</h1>
+    <nav>
+      <a routerLink="/" routerLinkActive="active">Inicio</a>
+      <a routerLink="/solicitar-arriendo" routerLinkActive="active">Solicitar Arriendo</a>
+      <a (click)="navigateToCalificar()" routerLinkActive="active">Calificar Arrendador</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <div class="home fade-in">
+    <h2>Bienvenido a ArriendaTuFinca</h2>
+  
+    <div class="search-bar">
+      <input [(ngModel)]="searchTerm" (input)="updateSuggestions()" placeholder="Buscar por ubicación en Colombia">
+      <button (click)="search()">Buscar</button>
+  
+      <ul *ngIf="suggestions.length > 0" class="suggestions-list">
+        <li *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)">
+          {{ suggestion }}
+        </li>
+      </ul>
     </div>
-</div>
+  
+    <div class="propiedades-grid">
+      <div *ngFor="let propiedad of filteredPropiedades" class="propiedad-card">
+        <img [src]="getImagenUrl(propiedad.urlImagen)" [alt]="propiedad.nombrePropiedad">
+        <h3>{{ propiedad.nombrePropiedad }}</h3>
+        <p>{{ propiedad.municipio }}, {{ propiedad.departamento }}</p>
+        <p>Precio: ${{ propiedad.valorNoche | number }} COP / noche</p>
+        <p>Capacidad: {{ propiedad.cantidadHabitaciones }} habitaciones / {{ propiedad.cantidadBanos }} baños</p>
+        <a [routerLink]="['/solicitar-arriendo', propiedad.id]" class="btn-ver-detalle">Ver detalles</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+  
