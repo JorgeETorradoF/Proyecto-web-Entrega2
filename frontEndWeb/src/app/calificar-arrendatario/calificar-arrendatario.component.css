@@ -1,0 +1,99 @@
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover, nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  h1{
+    color:white;
+  }
+.calificar-arrendatario {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  li:hover {
+    background-color: #f0f0f0;
+  }
+  .solicitud-info {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: var(--hover-color);
+  }
+  .formulario-calificacion {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .formulario-calificacion form div {
+    margin-bottom: 15px;
+  }
+  .formulario-calificacion label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .formulario-calificacion input,
+  .formulario-calificacion textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .formulario-calificacion button {
+    width: 100%;
+    padding: 10px;
+}

@@ -15,6 +15,10 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { DetallePropiedadComponent } from './propiedades-arrendador/detalle-propiedad/detalle-propiedad.component';
 import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propiedad/editar-propiedad.component';
 import { PrincipalArrendatarioComponent } from './principal-arrendatario/principal-arrendatario.component';
+import { CalificarArrendadorComponent } from './calificar-arrendador/calificar-arrendador.component';
+import { CalificarArrendatarioComponent } from './calificar-arrendatario/calificar-arrendatario.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +30,8 @@ import { PrincipalArrendatarioComponent } from './principal-arrendatario/princip
     DetallePropiedadComponent,
     EditarPropiedadComponent,
     PrincipalArrendatarioComponent,
+    CalificarArrendadorComponent,
+    CalificarArrendatarioComponent
   ],
   imports: [
     BrowserModule,
