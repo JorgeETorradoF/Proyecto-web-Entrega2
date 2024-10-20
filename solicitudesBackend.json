@@ -1,0 +1,246 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "web",
+    "collectionId": "24ef614b-2874-4615-a684-40c756ac2e72",
+    "dateExported": "2024-10-20T00:09:44.546Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "de133973-c6ff-461a-9066-b34c0bda846c",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "get all propiedades",
+            "url": "http://localhost/api/get-propiedades",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-10-19T23:46:57.448Z",
+            "modified": "2024-10-19T23:46:57.448Z",
+            "headers": []
+        },
+        {
+            "_id": "fb7baa34-cf56-42a1-b9c5-498297dc76f7",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "crear cuenta arrendador",
+            "url": "localhost/api/crear-cuenta",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-10-19T23:47:04.324Z",
+            "modified": "2024-10-19T23:47:04.324Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{           \"nombre\": \"nombre\",\n            \"apellido\": \"apellido\",\n            \"correo\": \"c@gmail.com\",\n            \"contraseña\": \"123\",\n            \"arrendador\": true\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9ff01842-75d9-407f-8053-1d95ccaf5ce2",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "obtener imagen",
+            "url": "http://localhost/api/arrendador/1/imagenes/1729126535624_griffith eclipse.jpg",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-10-19T23:47:10.122Z",
+            "modified": "2024-10-19T23:47:10.122Z",
+            "headers": []
+        },
+        {
+            "_id": "4c019a9a-6eb2-48ac-9a5d-6e9cb5dcd54e",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "iniciar-sesion",
+            "url": "localhost/api/iniciar-sesion",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-10-19T23:47:18.485Z",
+            "modified": "2024-10-19T23:47:18.485Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"correo\": \"b@gmail.com\",\n    \"contraseña\": \"123\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "2eb47940-31a4-4a24-bc09-e119154784b3",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "modificar propiedad",
+            "url": "localhost/api/arrendador/1/modificar-propiedad/1",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-10-19T23:47:37.366Z",
+            "modified": "2024-10-19T23:47:37.366Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"nombrePropiedad\": \"Row Row Fight the power\",\n    \"departamento\": \"que carajo es un kilometro?\",\n    \"municipio\": \"natlan\",\n    \"tipoIngreso\": \"sí\",\n    \"descripcion\": \"Hermosa casa con vista al lago y amplios espacios.\",\n    \"cantidadHabitaciones\": 3,\n    \"cantidadBanos\": 2,\n    \"permiteMascotas\": true,\n    \"tienePiscina\": false,\n    \"tieneAsador\": true,\n    \"valorNoche\": 120.50,\n    \"estado\": \"Activo\",\n    \"urlImagen\": \"https://i.imgur.com/dLG5eKJ.png\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "05cc0003-4eff-4ba8-9d17-e54896dadd2c",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "solicitar arriendo",
+            "url": "localhost/api/arrendatario/1/solicitar-arriendo/1",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-10-19T23:47:45.445Z",
+            "modified": "2024-10-19T23:47:45.445Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"fechaInicio\": \"2023-10-14T12:00:00\",\n  \"fechaFinal\": \"2023-10-15T12:00:00\",\n  \"enConflicto\": false\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "2abb2e03-9243-43be-b9f6-3dc849cb42a2",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "get propiedad por id",
+            "url": "http://localhost/api/arrendador/1/propiedad/1",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-10-19T23:48:12.085Z",
+            "modified": "2024-10-19T23:48:12.085Z",
+            "headers": []
+        },
+        {
+            "_id": "2ad9c3b4-230a-411d-9860-450fc9d7b1da",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "obtener contratos de arrendatario",
+            "url": "http://localhost/api/arrendatario/1/mis-contratos",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-10-19T23:48:20.174Z",
+            "modified": "2024-10-19T23:48:20.174Z",
+            "headers": []
+        },
+        {
+            "_id": "962503bc-6ad7-4aed-8652-a1b545d5db32",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "obtener contratos de arrendador",
+            "url": "http://localhost/api/arrendador/1/mis-contratos",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-10-19T23:48:47.325Z",
+            "modified": "2024-10-19T23:48:47.325Z",
+            "headers": []
+        },
+        {
+            "_id": "46e411c7-4634-4c82-a486-e1f50db7ee41",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "calificar usuario",
+            "url": "localhost/api/calificaciones/arrendatario/1?calificacion=1",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-10-19T23:48:52.614Z",
+            "modified": "2024-10-19T23:48:52.614Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "calificacion",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "5d5f6b00-a4a1-4f18-a8aa-1c7d66b9e9e6",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "get propiedades de arrendador",
+            "url": "http://localhost/api/arrendador/1/propiedades",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2024-10-19T23:48:57.563Z",
+            "modified": "2024-10-19T23:48:57.563Z",
+            "headers": []
+        },
+        {
+            "_id": "fade8812-ae98-43b4-8ade-83af1e0d5e2e",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "aceptar contrato",
+            "url": "localhost/api/arrendador/1/aceptar-contrato/1",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2024-10-19T23:49:18.576Z",
+            "modified": "2024-10-19T23:49:18.576Z",
+            "headers": []
+        },
+        {
+            "_id": "5e6dd0cc-7249-463f-9586-59ee9928b768",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "rechazar contrato",
+            "url": "localhost/api/arrendador/1/rechazar-contrato/1",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2024-10-19T23:49:23.144Z",
+            "modified": "2024-10-19T23:49:23.144Z",
+            "headers": []
+        },
+        {
+            "_id": "dcb425c2-fd62-478a-bdb0-a8dfde5f7153",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "crear cuenta arrendatario",
+            "url": "localhost/api/crear-cuenta",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2024-10-19T23:49:28.503Z",
+            "modified": "2024-10-19T23:49:28.503Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{           \"nombre\": \"nombre\",\n            \"apellido\": \"apellido\",\n            \"correo\": \"b@gmail.com\",\n            \"contraseña\": \"123\",\n            \"arrendador\": false\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4c32c1ef-e8cf-4847-b2da-cc9cae5a79c0",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "get all arrendatarios",
+            "url": "http://localhost/api/get-arrendatarios",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2024-10-20T00:02:53.864Z",
+            "modified": "2024-10-20T00:02:53.864Z",
+            "headers": []
+        },
+        {
+            "_id": "4430d2e4-1d84-49b2-9331-b8387dfb7729",
+            "colId": "24ef614b-2874-4615-a684-40c756ac2e72",
+            "containerId": "",
+            "name": "get all arrendadores",
+            "url": "http://localhost/api/get-arrendadores",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2024-10-20T00:02:58.049Z",
+            "modified": "2024-10-20T00:02:58.049Z",
+            "headers": []
+        }
+    ],
+    "ref": "E_QgS25NNKqBwRxbzExYFhLGitXLa_UkxsmWLJtir_dJU5KCSkpIYLl19VkLgzu9y0ZMkJE3n_imm1P_5eMTKQ"
+}
