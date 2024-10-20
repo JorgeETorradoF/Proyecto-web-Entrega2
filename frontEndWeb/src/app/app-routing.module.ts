@@ -11,6 +11,8 @@ import { DetallePropiedadComponent } from './propiedades-arrendador/detalle-prop
 import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propiedad/editar-propiedad.component';
 import { SolicitarArriendoComponent } from './solicitar-arriendo/solicitar-arriendo.component'; // Importa el componente
 import { CalificarArrendadorComponent } from './calificar-arrendador/calificar-arrendador.component';
+import { CalificarArrendatarioComponent } from './calificar-arrendatario/calificar-arrendatario.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,7 +26,8 @@ const routes: Routes = [
   { path: 'arrendador/:idArrendador/propiedades/detalle-propiedad/:idPropiedad', component: DetallePropiedadComponent},
   { path: 'arrendador/:idArrendador/propiedades/editar-propiedad/:idPropiedad', component: EditarPropiedadComponent},
   { path: 'solicitar-arriendo/:id', loadComponent: () => import('./solicitar-arriendo/solicitar-arriendo.component').then(m => m.SolicitarArriendoComponent) },
-  { path: 'arrendatario/:idArrendatario/calificar', component: CalificarArrendadorComponent }
+  { path: 'arrendatario/:idArrendatario/calificar', component: CalificarArrendadorComponent },
+  { path: 'arrendador/:idArrendador/calificar', component: CalificarArrendatarioComponent }
 ];
 
 @NgModule({

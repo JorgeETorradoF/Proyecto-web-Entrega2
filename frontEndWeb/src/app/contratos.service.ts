@@ -55,9 +55,5 @@ export class ContratosService {
   solicitarArriendo(idArrendatario: number,idProp: number, solicitud: Solicitud): Observable<Contract> {
     return this.http.post<Contract>(`${this.baseUrl}/arrendatario/${idArrendatario}/solicitar-arriendo/${idProp}`, solicitud);
   }
-  // Método para calificar al arrendador
-  calificarArrendador(calificacionData: { idContrato: number, calificacion: number, comentario: string }): Observable<any> {
-    const url = `${this.baseUrl}/arrendador/calificar`;
-    return this.http.post<any>(url, calificacionData);
-  }
+  
 }
