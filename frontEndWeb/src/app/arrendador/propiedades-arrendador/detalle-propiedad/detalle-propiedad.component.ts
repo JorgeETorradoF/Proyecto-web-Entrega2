@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PropiedadesService } from '../../propiedades.service';
+import { PropiedadesService } from '../../../services/propiedades.service';
 
 @Component({
   selector: 'app-detalle-propiedad',

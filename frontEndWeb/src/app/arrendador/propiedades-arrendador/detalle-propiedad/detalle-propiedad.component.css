@@ -1,6 +1,6 @@
 /* Contenedor principal centrado con fondo */
 .container-detalle {
-  background-image: url('../../../assets/images/finca.webp');
+  background-image: url('../../../../assets/images/finca.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PropiedadesService } from '../propiedades.service';
+import { PropiedadesService } from '../../services/propiedades.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 interface Propiedad {

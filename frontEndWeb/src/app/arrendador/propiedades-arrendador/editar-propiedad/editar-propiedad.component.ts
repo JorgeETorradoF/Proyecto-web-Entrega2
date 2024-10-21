@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PropiedadesService } from '../../propiedades.service';
+import { PropiedadesService } from '../../../services/propiedades.service';
 import { Propiedad } from './propiedad.interface'; // Asegúrate de que la ruta sea correcta
 
 @Component({

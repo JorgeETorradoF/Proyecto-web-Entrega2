@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../login.service';
-import { RegistroService } from '../registro.service';
+import { LoginService } from '../services/login.service';
+import { RegistroService } from '../services/registro.service';
 import { Router } from '@angular/router'; 
 import { NavbarComponent } from '../Landing-Page/navbar/navbar.component';
 

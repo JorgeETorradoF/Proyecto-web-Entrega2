@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsuarioService } from '../usuario.service';
-import { CalificacionService } from '../calificacion.service';
+import { UsuarioService } from '../../services/usuario.service';
+import { CalificacionService } from '../../services/calificacion.service';
 
 interface Arrendatario {
   id: number;

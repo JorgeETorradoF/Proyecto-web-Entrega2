@@ -1,5 +1,5 @@
 .container {
-    background-image: url('../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
+    background-image: url('../../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
     background-size: cover;  /* Cubre todo el contenedor */
     background-position: center; /* Centra la imagen */
     padding: 20px;

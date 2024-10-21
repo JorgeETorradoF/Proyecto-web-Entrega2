@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { PropiedadesService } from '../propiedades.service'; // Importamos el servicio
+import { PropiedadesService } from '../../services/propiedades.service'; // Importamos el servicio
 
 interface Propiedad {
   id: number;

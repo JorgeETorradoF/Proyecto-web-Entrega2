@@ -8,15 +8,15 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ContratosArrendadorComponent } from './contratos-arrendador/contratos-arrendador.component';
-import { ContratosArrendatarioComponent } from './contratos-arrendatario/contratos-arrendatario.component';
-import { PropiedadesArrendadorComponent } from './propiedades-arrendador/propiedades-arrendador.component';
-import { CrearPropiedadComponent } from './propiedades-arrendador/crear-propiedad/crear-propiedad.component';
+import { ContratosArrendatarioComponent } from './arrendatario/contratos-arrendatario/contratos-arrendatario.component';
+import { PropiedadesArrendadorComponent } from './arrendador/propiedades-arrendador/propiedades-arrendador.component';
+import { CrearPropiedadComponent } from './arrendador/propiedades-arrendador/crear-propiedad/crear-propiedad.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
-import { DetallePropiedadComponent } from './propiedades-arrendador/detalle-propiedad/detalle-propiedad.component';
-import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propiedad/editar-propiedad.component';
-import { PrincipalArrendatarioComponent } from './principal-arrendatario/principal-arrendatario.component';
-import { CalificarArrendadorComponent } from './calificar-arrendador/calificar-arrendador.component';
-import { CalificarArrendatarioComponent } from './calificar-arrendatario/calificar-arrendatario.component';
+import { DetallePropiedadComponent } from './arrendador/propiedades-arrendador/detalle-propiedad/detalle-propiedad.component';
+import { EditarPropiedadComponent } from './arrendador/propiedades-arrendador/editar-propiedad/editar-propiedad.component';
+import { PrincipalArrendatarioComponent } from './arrendatario/principal-arrendatario/principal-arrendatario.component';
+import { CalificarArrendadorComponent } from './arrendatario/calificar-arrendador/calificar-arrendador.component';
+import { CalificarArrendatarioComponent } from './arrendador/calificar-arrendatario/calificar-arrendatario.component';
 import { PaginaPrincipalComponent } from './Landing-Page/pagina-principal/pagina-principal.component';
 import { NavbarComponent } from './Landing-Page/navbar/navbar.component';
 import { HomeComponent } from './Landing-Page/home/home.component';
@@ -36,11 +36,11 @@ import { FooterComponent } from './Landing-Page/footer/footer.component'
     PrincipalArrendatarioComponent,
     CalificarArrendadorComponent,
     CalificarArrendatarioComponent,
-    PaginaPrincipalComponent,  // Declaración de PaginaPrincipal
-    NavbarComponent,           // Declaración de Navbar
-    HomeComponent,             // Declaración de Home
-    AboutUsComponent,          // Declaración de About Us
-    FooterComponent,           // Declaración de Footer
+    PaginaPrincipalComponent,  
+    NavbarComponent,           
+    HomeComponent,             
+    AboutUsComponent,          
+    FooterComponent,           
   ],
   imports: [
     BrowserModule,

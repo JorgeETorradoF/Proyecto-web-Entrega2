@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContratosService } from '../contratos.service'; // Importa el servicio
+import { ContratosService } from '../../services/contratos.service'; // Importa el servicio
 
 interface Contract {
   fechaInicio: string; 
