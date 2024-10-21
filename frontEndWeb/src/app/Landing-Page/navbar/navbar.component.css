@@ -3,7 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(76, 175, 79, 0.9);
+  background-color: #98a8867a;
   color: white;
   position: fixed;
   width: 100%;
@@ -44,12 +44,12 @@ nav {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #DBFF76;
+  background-color: #053b06;
   transition: width 0.3s ease;
 }
 
 .menu a:hover {
-  color: #DBFF76;
+  color: #053b06;
   transform: translateY(-2px);
 }
 
@@ -58,8 +58,8 @@ nav {
 }
 
 .login-btn {
-  background-color: #DBFF76;
-  color: #4CAF50;
+  background-color: #daff7600;
+  color: #ece8ce;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 25px;
@@ -71,7 +71,7 @@ nav {
 }
 
 .login-btn:hover {
-  background-color: #cdfa51;
+  background-color: #053b067c;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

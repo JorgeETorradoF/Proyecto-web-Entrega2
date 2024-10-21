@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContratosArrendadorComponent } from './contratos-arrendador/contratos-arrendador.component';
-import { LoginRegisterComponent } from './login-register/login-register.component'; // Componente de login
+import { ContratosArrendadorComponent } from './arrendador/contratos-arrendador/contratos-arrendador.component';
+import { LoginRegisterComponent } from './Landing-Page/login-register/login-register.component'; // Componente de login
 import { ContratosArrendatarioComponent } from './arrendatario/contratos-arrendatario/contratos-arrendatario.component';
 import { PrincipalArrendadorComponent } from './arrendador/principal-arrendador/principal-arrendador.component';
 import { PrincipalArrendatarioComponent } from './arrendatario/principal-arrendatario/principal-arrendatario.component';

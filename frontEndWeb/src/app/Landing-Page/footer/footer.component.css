@@ -16,7 +16,7 @@ footer {
     min-width: 200px;
   }
   h3 {
-    color: #4CAF50;
+    color: #90be6d;
     margin-bottom: 1rem;
   }
   ul {
@@ -29,7 +29,7 @@ footer {
     transition: color 0.3s ease;
   }
   a:hover {
-    color: #4CAF50;
+    color: #90be6d;
   }
   .social-icons {
     display: flex;
@@ -39,7 +39,7 @@ footer {
     display: inline-block;
     width: 30px;
     height: 30px;
-    background-color: #4CAF50;
+    background-color: #90be6d;
     color: white;
     text-align: center;
     line-height: 30px;
