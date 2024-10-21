@@ -1,0 +1,70 @@
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../assets/images/finca.webp');
+    color: white;
+    background-size: cover; /* Para que la imagen cubra todo el espacio */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .cta-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .cta-btn:first-child {
+    background-color: #DBFF76;
+    color: #479149;
+  }
+  .cta-btn:last-child {
+    background-color: white;
+    color: #479149;
+  }
+  .cta-btn:hover {
+    opacity: 0.9;
+  }
+  .services {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 900px;
+  }
+  .service {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(14px);
+    padding: 4rem;
+    border-radius: 10px;
+  }
+  .service h3 {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .service ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .service li {
+    margin-bottom: 0.5rem;
+  }

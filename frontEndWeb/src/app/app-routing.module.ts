@@ -12,10 +12,11 @@ import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propie
 import { SolicitarArriendoComponent } from './solicitar-arriendo/solicitar-arriendo.component'; // Importa el componente
 import { CalificarArrendadorComponent } from './calificar-arrendador/calificar-arrendador.component';
 import { CalificarArrendatarioComponent } from './calificar-arrendatario/calificar-arrendatario.component';
+import { PaginaPrincipalComponent } from './Landing-Page/pagina-principal/pagina-principal.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component: PaginaPrincipalComponent },
   { path: 'login', component: LoginRegisterComponent },
   { path: 'arrendador/:idArrendador/contratos', component: ContratosArrendadorComponent },
   { path: 'arrendatario/:idArrendatario/contratos', component: ContratosArrendatarioComponent },

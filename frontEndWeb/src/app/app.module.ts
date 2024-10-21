@@ -17,7 +17,11 @@ import { EditarPropiedadComponent } from './propiedades-arrendador/editar-propie
 import { PrincipalArrendatarioComponent } from './principal-arrendatario/principal-arrendatario.component';
 import { CalificarArrendadorComponent } from './calificar-arrendador/calificar-arrendador.component';
 import { CalificarArrendatarioComponent } from './calificar-arrendatario/calificar-arrendatario.component';
-
+import { PaginaPrincipalComponent } from './Landing-Page/pagina-principal/pagina-principal.component';
+import { NavbarComponent } from './Landing-Page/navbar/navbar.component';
+import { HomeComponent } from './Landing-Page/home/home.component';
+import { AboutUsComponent } from './Landing-Page/about-us/about-us.component';
+import { FooterComponent } from './Landing-Page/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +35,12 @@ import { CalificarArrendatarioComponent } from './calificar-arrendatario/calific
     EditarPropiedadComponent,
     PrincipalArrendatarioComponent,
     CalificarArrendadorComponent,
-    CalificarArrendatarioComponent
+    CalificarArrendatarioComponent,
+    PaginaPrincipalComponent,  // Declaración de PaginaPrincipal
+    NavbarComponent,           // Declaración de Navbar
+    HomeComponent,             // Declaración de Home
+    AboutUsComponent,          // Declaración de About Us
+    FooterComponent,           // Declaración de Footer
   ],
   imports: [
     BrowserModule,

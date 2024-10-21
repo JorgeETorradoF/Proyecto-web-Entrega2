@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
 import { RegistroService } from '../registro.service';
 import { Router } from '@angular/router'; 
+import { NavbarComponent } from '../Landing-Page/navbar/navbar.component';
 
 @Component({
   selector: 'app-login-register',
+
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css'] // Asegúrate de que la ruta sea correcta
 })
