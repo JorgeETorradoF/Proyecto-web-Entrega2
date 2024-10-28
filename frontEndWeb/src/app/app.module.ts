@@ -22,6 +22,8 @@ import { NavbarComponent } from './Landing-Page/navbar/navbar.component';
 import { HomeComponent } from './Landing-Page/home/home.component';
 import { AboutUsComponent } from './Landing-Page/about-us/about-us.component';
 import { FooterComponent } from './Landing-Page/footer/footer.component'
+import { DetallePropiedadArrendatarioComponent } from './arrendatario/detalle-propiedad-arrendatario/detalle-propiedad-arrendatario.component';
+import { SolicitarArriendoComponent } from './arrendatario/solicitar-arriendo/solicitar-arriendo.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,13 @@ import { FooterComponent } from './Landing-Page/footer/footer.component'
     PrincipalArrendatarioComponent,
     CalificarArrendadorComponent,
     CalificarArrendatarioComponent,
-    PaginaPrincipalComponent,  
-    NavbarComponent,           
-    HomeComponent,             
-    AboutUsComponent,          
-    FooterComponent,           
+    PaginaPrincipalComponent,
+    NavbarComponent,
+    HomeComponent,
+    AboutUsComponent,
+    FooterComponent,
+    DetallePropiedadArrendatarioComponent,
+    SolicitarArriendoComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ import com.example.ProyectoWeb.dto.ContratoDTO;
 import com.example.ProyectoWeb.model.Contratos;
 import com.example.ProyectoWeb.service.ServicioContratos;
 import com.example.ProyectoWeb.service.ServicioPropiedad;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 @RequestMapping("/api/arrendatario/{id}")

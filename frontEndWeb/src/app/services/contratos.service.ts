@@ -3,19 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface Contract {
-  fechaInicio: string; 
-  fechaFinal: string;   
-  id: number;          
-  idPropiedad: number; 
-  idArrendatario: number; 
-  estado: number;      
-  precio: number;     
+  fechaInicio: string;
+  fechaFinal: string;
+  id: number;
+  idPropiedad: number;
+  idArrendatario: number;
+  estado: number;
+  precio: number;
 }
 interface Solicitud {
-  fechaInicio: string; 
-  fechaFinal: string; 
+  fechaInicio: string;
+  fechaFinal: string;
+  cantidadPersonas: number;
   enConflicto: boolean;
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -51,9 +53,12 @@ export class ContratosService {
   getContratosArrendatario(idArrendatario: number): Observable<Contract[]> {
     return this.http.get<Contract[]>(`${this.baseUrl}/arrendatario/${idArrendatario}/mis-contratos`);
   }
-  
-  solicitarArriendo(idArrendatario: number,idProp: number, solicitud: Solicitud): Observable<Contract> {
-    return this.http.post<Contract>(`${this.baseUrl}/arrendatario/${idArrendatario}/solicitar-arriendo/${idProp}`, solicitud);
+
+  solicitarArriendo(idArrendador: number, idPropiedad: number, solicitud: Solicitud): Observable<any> {
+    return this.http.post<any>(
+      `${this.baseUrl}/arrendatario/${idArrendador}/solicitar-arriendo/${idPropiedad}`,
+      solicitud
+    );
   }
-  
+
 }

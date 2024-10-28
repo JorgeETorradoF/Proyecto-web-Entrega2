@@ -1,0 +1,70 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PropiedadesService } from '../../services/propiedades.service';
+
+interface Propiedad {
+  id: number;
+  nombrePropiedad: string;
+  descripcion: string;
+  valorNoche: number;
+  departamento: string;
+  municipio: string;
+  tipoIngreso: string;
+  cantidadHabitaciones: number;
+  cantidadBanos: number;
+  permiteMascotas: boolean;
+  tienePiscina: boolean;
+  tieneAsador: boolean;
+  urlImagen: string | null;
+  idArrendador?: number;
+}
+
+
+@Component({
+  selector: 'app-detalle-propiedad-arrendatario',
+  templateUrl: './detalle-propiedad-arrendatario.component.html',
+  styleUrls: ['./detalle-propiedad-arrendatario.component.css'],
+})
+export class DetallePropiedadArrendatarioComponent implements OnInit {
+  propiedad!: Propiedad;
+  idPropiedad!: number;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private propiedadesService: PropiedadesService
+  ) {}
+
+  ngOnInit(): void {
+    const propiedadId = this.route.snapshot.paramMap.get('idPropiedad');
+    if (propiedadId) {
+      this.idPropiedad = +propiedadId;
+      this.cargarPropiedad();
+    } else {
+      console.error('ID de propiedad no encontrado en la ruta');
+    }
+  }
+
+  cargarPropiedad(): void {
+    this.propiedadesService.getPropiedad(1, this.idPropiedad).subscribe(
+      (propiedad) => {
+        this.propiedad = propiedad;
+      },
+      (error) => {
+        console.error('Error al cargar la propiedad:', error);
+      }
+    );
+  }
+
+  redirigirSolicitarArriendo(idArrendador: number): void {
+    console.log(`Redirigiendo a solicitar arriendo con idArrendador: ${idArrendador} y idPropiedad: ${this.idPropiedad}`);
+    this.router.navigate([
+      `/solicitar-arriendo/${this.idPropiedad}/${idArrendador}`
+    ]);
+  }
+
+
+  getImagenUrl(url: string | null): string {
+    return url ?? '../../../assets/images/finca.webp';
+  }
+}

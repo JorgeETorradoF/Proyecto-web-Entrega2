@@ -61,7 +61,6 @@ export class PropiedadesService {
     );
   }
 
-
   editarPropiedad(idArrendador: number, idPropiedad: number, propiedad: any): Observable<any> {
     const url = `${this.baseUrl}/arrendador/${idArrendador}/modificar-propiedad/${idPropiedad}`;
     return this.http.put(url, propiedad, { headers: { 'Content-Type': 'application/json' } });
@@ -77,6 +76,7 @@ export class PropiedadesService {
   const url = `${this.baseUrl}/arrendador/${idArrendador}/propiedad/${idPropiedad}`;
   return this.http.get(url);
   }
+
 
 }
 
