@@ -27,6 +27,7 @@ import { SolicitarArriendoComponent } from './arrendatario/solicitar-arriendo/so
 import { WikiGroupComponent } from './Landing-Page/wiki-group/wiki-group.component';
 import { NavbarArrendadorComponent } from './arrendador/navbar-arrendador/navbar-arrendador.component';
 import { FooterArrendadorComponent } from './arrendador/footer-arrendador/footer-arrendador.component';
+import { PrincipalArrendadorComponent } from './arrendador/principal-arrendador/principal-arrendador.component';
 
 
 @NgModule({
@@ -50,8 +51,9 @@ import { FooterArrendadorComponent } from './arrendador/footer-arrendador/footer
     DetallePropiedadArrendatarioComponent,
     SolicitarArriendoComponent,
     WikiGroupComponent,
-    NavbarArrendadorComponent,
-    FooterArrendadorComponent
+    FooterArrendadorComponent,
+    PrincipalArrendadorComponent,
+    NavbarArrendadorComponent
   ],
   imports: [
     BrowserModule,
