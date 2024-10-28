@@ -1,5 +1,5 @@
 .container {
-    background-image: url('../../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
+    background-color: white; /* Asegúrate de que esta ruta sea correcta */
     background-size: cover;  /* Cubre todo el contenedor */
     background-position: center; /* Centra la imagen */
     padding: 20px;
@@ -31,3 +31,39 @@
     background-color: #0056b3; /* Color de fondo de los botones al pasar el ratón */
   }
   
+  /* Header Style */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar (nav) Style */
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Title Style (h1) */
+h1 {
+  color: white;
+}

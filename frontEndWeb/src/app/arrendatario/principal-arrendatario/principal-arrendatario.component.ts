@@ -87,6 +87,11 @@ export class PrincipalArrendatarioComponent implements OnInit {
   navigateToCalificar() {
     this.router.navigate([`/arrendatario/${this.idArrendatario}/calificar`]);
   }  
+
+  navigateToPrincipal()
+  {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}`]);
+  }
 }
 
 // import { Component, OnInit } from '@angular/core';

@@ -26,10 +26,10 @@ const routes: Routes = [
   { path: 'arrendador/:idArrendador/propiedades/crear-propiedad', component: CrearPropiedadComponent },
   { path: 'arrendador/:idArrendador/propiedades/detalle-propiedad/:idPropiedad', component: DetallePropiedadComponent},
   { path: 'arrendador/:idArrendador/propiedades/editar-propiedad/:idPropiedad', component: EditarPropiedadComponent},
-  { path: 'solicitar-arriendo/:idPropiedad/:idArrendador', component: SolicitarArriendoComponent },
+  { path: 'arrendatario/:idArrendatario/solicitar-arriendo/:idPropiedad/:idArrendador', component: SolicitarArriendoComponent },
   { path: 'arrendatario/:idArrendatario/calificar', component: CalificarArrendadorComponent },
   { path: 'arrendador/:idArrendador/calificar', component: CalificarArrendatarioComponent },
-  { path: 'arrendatario/:idPropiedad/detalle-propiedad', component: DetallePropiedadArrendatarioComponent}
+  { path: 'arrendatario/:idArrendatario/detalle-propiedad/:idPropiedad', component: DetallePropiedadArrendatarioComponent}
 
 ];
 

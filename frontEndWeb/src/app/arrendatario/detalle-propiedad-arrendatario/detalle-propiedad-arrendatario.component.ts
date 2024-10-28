@@ -28,6 +28,7 @@ interface Propiedad {
 export class DetallePropiedadArrendatarioComponent implements OnInit {
   propiedad!: Propiedad;
   idPropiedad!: number;
+  idArrendatario: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class DetallePropiedadArrendatarioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.idArrendatario = +this.route.snapshot.paramMap.get('idArrendatario')!;
     const propiedadId = this.route.snapshot.paramMap.get('idPropiedad');
     if (propiedadId) {
       this.idPropiedad = +propiedadId;
@@ -59,12 +61,25 @@ export class DetallePropiedadArrendatarioComponent implements OnInit {
   redirigirSolicitarArriendo(idArrendador: number): void {
     console.log(`Redirigiendo a solicitar arriendo con idArrendador: ${idArrendador} y idPropiedad: ${this.idPropiedad}`);
     this.router.navigate([
-      `/solicitar-arriendo/${this.idPropiedad}/${idArrendador}`
+      `/arrendatario/${this.idArrendatario}/solicitar-arriendo/${this.idPropiedad}/${idArrendador}`
     ]);
   }
 
 
   getImagenUrl(url: string | null): string {
     return url ?? '../../../assets/images/finca.webp';
+  }
+  // Métodos de navegación a otras vistas
+  navigateToVerContratos() {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}/contratos`]);
+  }
+
+  navigateToCalificar() {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}/calificar`]);
+  }  
+  
+  navigateToPrincipal()
+  {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}`]);
   }
 }

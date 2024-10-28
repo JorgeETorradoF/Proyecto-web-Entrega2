@@ -35,6 +35,7 @@ interface Solicitud {
   styleUrls: ['./solicitar-arriendo.component.css'],
 })
 export class SolicitarArriendoComponent implements OnInit {
+  idArrendatario: number = 0;
   propiedad: Propiedad | undefined;
   solicitud = {
     fechaInicial: '',
@@ -53,6 +54,7 @@ export class SolicitarArriendoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.idArrendatario = +this.route.snapshot.paramMap.get('idArrendatario')!;
     const propiedadId = this.route.snapshot.paramMap.get('idPropiedad');
     const idArrendador = this.route.snapshot.paramMap.get('idArrendador');
 
@@ -154,5 +156,18 @@ export class SolicitarArriendoComponent implements OnInit {
     if (this.errorFechas) {
       console.error('Error: Las fechas no concuerdan.');
     }
+  }
+  // Métodos de navegación a otras vistas
+  navigateToVerContratos() {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}/contratos`]);
+  }
+
+  navigateToCalificar() {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}/calificar`]);
+  }  
+
+  navigateToPrincipal()
+  {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}`]);
   }
 }

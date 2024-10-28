@@ -56,4 +56,17 @@ export class ContratosArrendatarioComponent implements OnInit {
         return 'Desconocido'; // siempre estára entre los 3 primeros pero el compilador jode si no hay un default :'v
     }
   }
+    // Métodos de navegación a otras vistas
+    navigateToVerContratos() {
+      this.router.navigate([`/arrendatario/${this.idArrendatario}/contratos`]);
+    }
+  
+    navigateToCalificar() {
+      this.router.navigate([`/arrendatario/${this.idArrendatario}/calificar`]);
+    }  
+    
+    navigateToPrincipal()
+    {
+      this.router.navigate([`/arrendatario/${this.idArrendatario}`]);
+    }
 }

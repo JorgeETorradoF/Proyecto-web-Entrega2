@@ -25,6 +25,7 @@ interface Arrendador {
 export class CalificarArrendadorComponent implements OnInit {
   arrendadoresPorCalificar: Arrendador[] = []; // Lista de arrendadores
   arrendadorSeleccionado: Arrendador | null = null; // Arrendador seleccionado para calificar
+  idArrendatario: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +35,7 @@ export class CalificarArrendadorComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.idArrendatario = +this.route.snapshot.paramMap.get('idArrendatario')!;
     // Aquí puedes cargar los arrendadores por calificar a través del servicio
     this.usuarioService.getAllArrendadores().subscribe(
       (data: Arrendador[]) => {
@@ -72,5 +74,19 @@ export class CalificarArrendadorComponent implements OnInit {
         }
       );
     }
+  }
+  
+  // Métodos de navegación a otras vistas
+  navigateToVerContratos() {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}/contratos`]);
+  }
+
+  navigateToCalificar() {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}/calificar`]);
+  }  
+  
+  navigateToPrincipal()
+  {
+    this.router.navigate([`/arrendatario/${this.idArrendatario}`]);
   }
 }

@@ -2,7 +2,7 @@
   <div class="container">
     <h1>ArriendaTuFinca</h1>
     <nav>
-      <a routerLink="/principal-arrendatario">Inicio</a>
+      <a (click)="navigateToPrincipal()">Inicio</a>
       <a (click)="navigateToVerContratos()">Ver Contratos</a>
       <a (click)="navigateToCalificar()">Calificar Arrendador</a>
     </nav>
@@ -13,7 +13,7 @@
     <h2>Bienvenido a ArriendaTuFinca</h2>
 
     <div class="search-bar">
-      <input (ngModel)]="searchTerm" (input)="updateSuggestions()" placeholder="Buscar por ubicación en Colombia">
+      <input [(ngModel)]="searchTerm" (input)="updateSuggestions()" placeholder="Buscar por ubicación en Colombia">
       <button (click)="search()">Buscar</button>
 
       <ul *ngIf="suggestions.length > 0" class="suggestions-list">
@@ -28,12 +28,10 @@
         <img [src]="getImagenUrl(propiedad.urlImagen)" [alt]="propiedad.nombrePropiedad">
         <h3>{{ propiedad.nombrePropiedad }}</h3>
         <p>{{ propiedad.municipio }}, {{ propiedad.departamento }}</p>
-        <p>Precio: ${{ propiedad.valorNoche}} COP / noche</p>
+        <p>Precio: ${{ propiedad.valorNoche | number }} COP / noche</p>
         <p>Capacidad: {{ propiedad.cantidadHabitaciones }} habitaciones / {{ propiedad.cantidadBanos }} baños</p>
-        <a routerLink]="['/arrendatario', propiedad.id, 'detalle-propiedad']" class="btn-ver-detalle">Ver detalles</a>
+        <a [routerLink]="['/arrendatario', this.idArrendatario, 'detalle-propiedad',propiedad.id]" class="btn-ver-detalle">Ver detalles</a>
       </div>
     </div>
   </div>
 </main>
-
-
