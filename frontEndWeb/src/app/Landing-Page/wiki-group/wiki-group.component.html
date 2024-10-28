@@ -1,0 +1,314 @@
+<section id="wiki-group" class="wiki-group">
+    <div class="wiki-content">
+        <h1>WikiGroup</h1>
+        <hr>
+    
+        <section>
+            <h2>Introducción</h2>
+            <p>
+                La presente documentación corresponde a la segunda entrega del proyecto de desarrollo de una aplicación para la gestión de arrendamientos de propiedades. Este proyecto está diseñado para facilitar la interacción entre dos tipos de usuarios principales: el Usuario Arrendatario, encargado de la gestión de propiedades, y el Usuario Arrendador, enfocado en la búsqueda y arrendamiento de fincas.
+            </p>
+            <p>
+                El objetivo principal de esta segunda entrega es demostrar la integración efectiva entre el backend, desarrollado con JPA, y el frontend, implementado con Angular. En esta fase del proyecto, se han creado y configurado los componentes principales y transversales, se ha establecido la navegación de rutas dentro de la aplicación y se ha asegurado la comunicación con el backend para cumplir con las historias de usuario solicitadas.
+            </p>
+            <p>
+                Aunque aún no se ha implementado un sistema de autenticación, esta entrega se ha centrado en garantizar que las funcionalidades operen correctamente para un usuario ficticio, manteniendo una arquitectura escalable y flexible. La documentación que sigue describe la estructura de la aplicación, los componentes clave, los modelos de datos, los servicios, así como las pruebas realizadas para verificar que cada historia de usuario funcione según lo esperado.
+            </p>
+            <p>
+                Esta entrega sienta las bases para futuras implementaciones, incluyendo las pruebas de carga, la autenticación mediante JWT, y el manejo avanzado de seguridad y errores que se abordarán en la tercera fase del proyecto.
+            </p>
+        </section>
+    
+        <hr>
+    
+        <!-- Componente Principal (AppComponent) -->
+        <section id="componente-principal">
+            <h2>Componentes</h2>
+
+            <!-- Componente Principal (AppComponent) -->
+            <div class="componente">
+                <h3>1. Componente Principal (AppComponent)</h3>
+                <p>Este es el componente raíz de la aplicación. Todos los demás componentes son cargados dentro de este. Contiene el "esqueleto" principal de la aplicación, como el menú y las rutas hacia otras vistas.</p>
+                <p><strong>Selector:</strong> <code>&lt;app-root&gt;</code> (Invocado una vez, en el archivo index.html)</p>
+            </div>
+
+            <!-- Componentes de Gestión de Propiedades -->
+            <div class="componente">
+                <h3>2. Componentes de Gestión de Propiedades</h3>
+                <ul>
+                    <li><strong>PropiedadesArrendadorComponent:</strong> Gestiona la vista en la que el Usuario Arrendatario administra sus propiedades. Aquí puede ver, crear, editar o eliminar propiedades.</li>
+                    <li><strong>CrearPropiedadComponent:</strong> Se utiliza específicamente para que el Usuario Arrendatario cree una nueva propiedad.</li>
+                    <li><strong>DetallePropiedadComponent:</strong> Muestra los detalles específicos de una propiedad seleccionada.</li>
+                    <li><strong>EditarPropiedadComponent:</strong> Facilita la edición de las propiedades existentes.</li>
+                </ul>
+            </div>
+
+            <!-- Componentes de Contratos -->
+            <div class="componente">
+                <h3>3. Componentes de Contratos</h3>
+                <ul>
+                    <li><strong>ContratosArrendadorComponent</strong> y <strong>ContratosArrendatarioComponent:</strong> Estos componentes manejan las vistas en las que los usuarios arrendadores y arrendatarios pueden ver y gestionar sus contratos de arrendamiento. Permiten aceptar o rechazar solicitudes y administrar los contratos actuales.</li>
+                </ul>
+            </div>
+
+            <!-- Componentes de Vistas Principales -->
+            <div class="componente">
+                <h3>4. Componentes de Vistas Principales</h3>
+                <ul>
+                    <li><strong>PrincipalArrendadorComponent</strong> y <strong>PrincipalArrendatarioComponent:</strong> Estos son los "paneles de control" de cada tipo de usuario, donde pueden acceder rápidamente a sus acciones principales, como gestionar propiedades o ver contratos.</li>
+                </ul>
+            </div>
+
+            <!-- Componente de Autenticación -->
+            <div class="componente">
+                <h3>5. Componente de Autenticación</h3>
+                <p><strong>LoginRegisterComponent:</strong> Maneja la autenticación (login y registro) de los usuarios, aunque en esta fase de la entrega aún no se implementó la autenticación completa.</p>
+            </div>
+
+            <!-- Componente Menú -->
+            <div class="componente">
+                <h3>6. Componente Menú</h3>
+                <p><strong>MenuComponent:</strong> Representa el menú de navegación de la aplicación. Este componente se muestra en todas las vistas para permitir la navegación entre las diferentes secciones.</p>
+            </div>
+        </section>
+
+    
+        <hr>
+        <h2>Rutas (Routes)</h2>
+            <p>La configuración de rutas es un elemento esencial en la aplicación Angular, ya que permite la navegación entre las diferentes vistas de la aplicación. Se define mediante el RouterModule y se utilizan en combinación con los componentes para mostrar las diferentes páginas disponibles para los usuarios. La aplicación gestiona dos tipos principales de usuarios, el Usuario Arrendador y el Usuario Arrendatario, y cada uno tiene su propio conjunto de rutas que le permiten acceder a las funcionalidades específicas.</p>
+
+            <h3>Sección de Routes (Enrutamiento) en el Frontend</h3>
+            <p>La configuración de rutas se encuentra en el archivo <code>app-routing.module.ts</code>, que centraliza todas las rutas de la aplicación. El archivo <code>app-routing.module.ts</code> incluye las siguientes secciones:</p>
+
+            <ul>
+                <li><strong>Importaciones:</strong> Se importan los módulos necesarios para el enrutamiento (<code>RouterModule</code> y <code>Routes</code> de <code>&#64;angular/router</code>), así como los componentes que se usarán en las rutas.</li>
+                <li><strong>Constante routes:</strong> Define un arreglo de rutas con el formato <code>&#123; path: 'url', component: Componente &#125;</code>, donde <em>path</em> es la URL y <em>component</em> es el componente a cargar. También permite la navegación con parámetros dinámicos.</li>
+                <li><strong>Módulo AppRoutingModule:</strong> Este módulo importa <code>RouterModule.forRoot(routes)</code> para habilitar el enrutamiento y exporta <code>RouterModule</code> para que esté disponible en toda la aplicación.</li>
+            </ul>
+
+            <h4>Rutas principales de la aplicación</h4>
+            <p>A continuación se detallan las rutas principales de la aplicación y el propósito de cada una:</p>
+
+            <ol>
+                <li>
+                    <h5><strong>Ruta principal (Home)</strong></h5>
+                    <p><strong>Path:</strong> ''<br>
+                    <strong>Componente:</strong> PaginaPrincipalComponent<br>
+                    <strong>Descripción:</strong> Esta ruta carga la página principal de la aplicación. Se activa cuando el usuario accede a la raíz del sitio (es decir, /).</p>
+                </li>
+                <li>
+                    <h5><strong>Ruta de Login</strong></h5>
+                    <p><strong>Path:</strong> 'login'<br>
+                    <strong>Componente:</strong> LoginRegisterComponent<br>
+                    <strong>Descripción:</strong> Carga el componente de login y registro, donde los usuarios pueden autenticarse.</p>
+                </li>
+                <li>
+                    <h5><strong>Rutas para el Arrendador</strong></h5>
+                    <p><strong>Contratos del arrendador:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador/contratos'<br>
+                    <strong>Componente:</strong> ContratosArrendadorComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendador ver los contratos asociados a su cuenta, identificado por <em>idArrendador</em>.</p>
+
+                    <p><strong>Página principal del arrendador:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador'<br>
+                    <strong>Componente:</strong> PrincipalArrendadorComponent<br>
+                    <strong>Descripción:</strong> Carga la vista principal para el arrendador.</p>
+
+                    <p><strong>Gestión de propiedades del arrendador:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador/propiedades'<br>
+                    <strong>Componente:</strong> PropiedadesArrendadorComponent<br>
+                    <strong>Descripción:</strong> Muestra todas las propiedades del arrendador.</p>
+
+                    <p><strong>Crear propiedad:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador/propiedades/crear-propiedad'<br>
+                    <strong>Componente:</strong> CrearPropiedadComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendador crear una nueva propiedad.</p>
+
+                    <p><strong>Detalle de propiedad:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador/propiedades/detalle-propiedad/:idPropiedad'<br>
+                    <strong>Componente:</strong> DetallePropiedadComponent<br>
+                    <strong>Descripción:</strong> Muestra los detalles de una propiedad específica.</p>
+
+                    <p><strong>Editar propiedad:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador/propiedades/editar-propiedad/:idPropiedad'<br>
+                    <strong>Componente:</strong> EditarPropiedadComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendador editar una propiedad existente.</p>
+
+                    <p><strong>Calificar arrendatario:</strong></p>
+                    <p><strong>Path:</strong> 'arrendador/:idArrendador/calificar'<br>
+                    <strong>Componente:</strong> CalificarArrendatarioComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendador calificar a un arrendatario.</p>
+                </li>
+                <li>
+                    <h5><strong>Rutas para el Arrendatario</strong></h5>
+                    <p><strong>Contratos del arrendatario:</strong></p>
+                    <p><strong>Path:</strong> 'arrendatario/:idArrendatario/contratos'<br>
+                    <strong>Componente:</strong> ContratosArrendatarioComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendatario ver los contratos que tiene activos.</p>
+
+                    <p><strong>Página principal del arrendatario:</strong></p>
+                    <p><strong>Path:</strong> 'arrendatario/:idArrendatario'<br>
+                    <strong>Componente:</strong> PrincipalArrendatarioComponent<br>
+                    <strong>Descripción:</strong> Carga la vista principal para el arrendatario.</p>
+
+                    <p><strong>Solicitar arriendo:</strong></p>
+                    <p><strong>Path:</strong> 'solicitar-arriendo/:id'<br>
+                    <strong>Componente (Carga diferida):</strong> SolicitarArriendoComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendatario solicitar el arriendo de una propiedad específica.</p>
+
+                    <p><strong>Calificar arrendador:</strong></p>
+                    <p><strong>Path:</strong> 'arrendatario/:idArrendatario/calificar'<br>
+                    <strong>Componente:</strong> CalificarArrendadorComponent<br>
+                    <strong>Descripción:</strong> Permite al arrendatario calificar al arrendador después de la finalización del contrato.</p>
+                </li>
+                <li>
+                    <h5><strong>Carga diferida (Lazy Loading)</strong></h5>
+                    <p>Una de las rutas utiliza lazy loading, lo cual permite cargar componentes solo cuando son necesarios:</p>
+                    <p><strong>Ruta:</strong> 'solicitar-arriendo/:id'<br>
+                    <strong>Componente:</strong> SolicitarArriendoComponent<br>
+                    <strong>Método:</strong> loadComponent: () => import('./arrendatario/solicitar-arriendo/solicitar-arriendo.component').then(m => m.SolicitarArriendoComponent)<br>
+                    <strong>Descripción:</strong> Esto optimiza el rendimiento de la aplicación, cargando el componente solo cuando el usuario accede a esta ruta.</p>
+                </li>
+            </ol>
+
+            <h3>Sección de Routes (Endpoints API) en el BackEnd</h3>
+
+            <h4>1. ControladorArrendador.java</h4>
+            <ul>
+                <li><strong>POST /api/arrendador/&#123; id &#125;/registrar-propiedad:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Permite al arrendador registrar una nueva propiedad. Los detalles de la propiedad (como nombre, ubicación, características) se envían en un PropiedadDTO, junto con una imagen opcional que se almacena en el servidor.</li>
+                    <li><strong>Descripción:</strong> Registra una propiedad para el arrendador con el ID especificado y guarda una imagen asociada en el servidor.</li>
+                    <li><strong>Request:</strong> Multipart form-data con PropiedadDTO y imagen.</li>
+                    <li><strong>Response:</strong> JSON con la información de la propiedad registrada.</li>
+                </ul>
+                <li><strong>GET /api/arrendador/&#123; id &#125;/imagenes/&#123; nombreImagen &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve la imagen de una propiedad registrada.</li>
+                    <li><strong>Descripción:</strong> Busca la imagen en el servidor y la devuelve como un array de bytes.</li>
+                    <li><strong>Response:</strong> Array de bytes que representa la imagen.</li>
+                </ul>
+                <li><strong>GET /api/arrendador/&#123; id &#125;/propiedades:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve todas las propiedades asociadas al arrendador.</li>
+                    <li><strong>Descripción:</strong> Recupera las propiedades de un arrendador específico.</li>
+                    <li><strong>Response:</strong> Lista de propiedades en formato JSON.</li>
+                </ul>
+                <li><strong>PUT /api/arrendador/&#123; id &#125;/modificar-propiedad/&#123; propId &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Modifica los detalles de una propiedad existente.</li>
+                    <li><strong>Descripción:</strong> Permite actualizar los datos de una propiedad previamente registrada por el arrendador.</li>
+                    <li><strong>Request:</strong> JSON con los detalles de la propiedad.</li>
+                    <li><strong>Response:</strong> JSON con la información actualizada de la propiedad.</li>
+                </ul>
+                <li><strong>GET /api/arrendador/&#123; id &#125;/propiedad/&#123; propiedadId &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Muestra el detalle de una propiedad específica.</li>
+                    <li><strong>Descripción:</strong> Devuelve la información detallada de una propiedad.</li>
+                    <li><strong>Response:</strong> Detalles de la propiedad en JSON.</li>
+                </ul>
+                <li><strong>GET /api/arrendador/&#123; id &#125;/mis-contratos:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve todos los contratos del arrendador.</li>
+                    <li><strong>Descripción:</strong> Muestra los contratos asociados al arrendador.</li>
+                    <li><strong>Response:</strong> Lista de contratos en JSON.</li>
+                </ul>
+                <li><strong>PUT /api/arrendador/&#123; id &#125;/aceptar-contrato/&#123; contratoId &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Acepta un contrato de arriendo.</li>
+                    <li><strong>Descripción:</strong> Permite al arrendador aceptar un contrato que estaba pendiente.</li>
+                    <li><strong>Response:</strong> Detalles del contrato aceptado.</li>
+                </ul>
+                <li><strong>PUT /api/arrendador/&#123; id &#125;/rechazar-contrato/&#123; contratoId &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Rechaza un contrato de arriendo.</li>
+                    <li><strong>Descripción:</strong> Permite al arrendador rechazar un contrato.</li>
+                    <li><strong>Response:</strong> Detalles del contrato rechazado.</li>
+                </ul>
+            </ul>
+
+            <h4>2. ControladorArrendatario.java</h4>
+            <ul>
+                <li><strong>POST /api/arrendatario/&#123; id &#125;/solicitar-arriendo/&#123; idPropiedad &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Permite al arrendatario solicitar el arriendo de una propiedad.</li>
+                    <li><strong>Descripción:</strong> El arrendatario puede solicitar el arriendo de una propiedad mediante un ContratoDTO.</li>
+                    <li><strong>Request:</strong> JSON con los detalles del contrato.</li>
+                    <li><strong>Response:</strong> JSON con la información del contrato registrado.</li>
+                </ul>
+                <li><strong>GET /api/arrendatario/&#123; id &#125;/mis-contratos:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve todos los contratos del arrendatario.</li>
+                    <li><strong>Descripción:</strong> Muestra los contratos que el arrendatario tiene asociados.</li>
+                    <li><strong>Response:</strong> Lista de contratos en formato JSON.</li>
+                </ul>
+            </ul>
+
+            <h4>3. ControladorCalificacion.java</h4>
+            <ul>
+                <li><strong>POST /api/calificaciones/arrendador/&#123; id &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Permite calificar a un arrendador.</li>
+                    <li><strong>Descripción:</strong> El usuario puede calificar a un arrendador con una puntuación numérica.</li>
+                    <li><strong>Request:</strong> Calificación en formato Double.</li>
+                    <li><strong>Response:</strong> JSON con el resultado de la calificación.</li>
+                </ul>
+                <li><strong>POST /api/calificaciones/arrendatario/&#123; id &#125;:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Permite calificar a un arrendatario.</li>
+                    <li><strong>Descripción:</strong> El usuario puede calificar a un arrendatario con una puntuación numérica.</li>
+                    <li><strong>Request:</strong> Calificación en formato Float.</li>
+                    <li><strong>Response:</strong> JSON con el resultado de la calificación.</li>
+                </ul>
+            </ul>
+
+            <h4>4. ControladorGetAll.java</h4>
+            <ul>
+                <li><strong>GET /api/get-propiedades:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve todas las propiedades registradas en la plataforma.</li>
+                    <li><strong>Descripción:</strong> Recupera todas las propiedades disponibles sin filtrar por usuario.</li>
+                    <li><strong>Response:</strong> Lista de propiedades en JSON.</li>
+                </ul>
+                <li><strong>GET /api/get-arrendadores:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve todos los arrendadores registrados.</li>
+                    <li><strong>Descripción:</strong> Recupera la lista completa de arrendadores en la plataforma.</li>
+                    <li><strong>Response:</strong> Lista de arrendadores en JSON.</li>
+                </ul>
+                <li><strong>GET /api/get-arrendatarios:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Devuelve todos los arrendatarios registrados.</li>
+                    <li><strong>Descripción:</strong> Recupera la lista completa de arrendatarios en la plataforma.</li>
+                    <li><strong>Response:</strong> Lista de arrendatarios en JSON.</li>
+                </ul>
+            </ul>
+
+            <h4>5. ControladorLogin.java</h4>
+            <ul>
+                <li><strong>POST /api/iniciar-sesion:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Inicia sesión para un usuario arrendador o arrendatario.</li>
+                    <li><strong>Descripción:</strong> Verifica las credenciales del usuario y redirige a la ruta adecuada según su tipo (arrendador o arrendatario).</li>
+                    <li><strong>Request:</strong> JSON con las credenciales de inicio de sesión (LoginDTO).</li>
+                    <li><strong>Response:</strong> URL de redirección al perfil del usuario.</li>
+                </ul>
+            </ul>
+
+            <h4>6. ControladorRegistro.java</h4>
+            <ul>
+                <li><strong>POST /api/crear-cuenta:</strong></li>
+                <ul>
+                    <li><strong>Funcionalidad:</strong> Registra un nuevo usuario.</li>
+                    <li><strong>Descripción:</strong> Crea un nuevo usuario en la plataforma, verificando si el correo ya está registrado.</li>
+                    <li><strong>Request:</strong> JSON con los detalles del nuevo usuario (RegistroDTO).</li>
+                    <li><strong>Response:</strong> JSON con los detalles del usuario registrado o un mensaje de error.</li>
+                </ul>
+            </ul>
+
+        <hr>
+    
+        <!-- Continuar con el resto de las secciones (BackEnd, ControladorArrendador.java, etc.) -->
+    </div>
+    
+</section>

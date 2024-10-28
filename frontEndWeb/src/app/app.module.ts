@@ -24,6 +24,8 @@ import { AboutUsComponent } from './Landing-Page/about-us/about-us.component';
 import { FooterComponent } from './Landing-Page/footer/footer.component'
 import { DetallePropiedadArrendatarioComponent } from './arrendatario/detalle-propiedad-arrendatario/detalle-propiedad-arrendatario.component';
 import { SolicitarArriendoComponent } from './arrendatario/solicitar-arriendo/solicitar-arriendo.component';
+import { WikiGroupComponent } from './Landing-Page/wiki-group/wiki-group.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { SolicitarArriendoComponent } from './arrendatario/solicitar-arriendo/so
     AboutUsComponent,
     FooterComponent,
     DetallePropiedadArrendatarioComponent,
-    SolicitarArriendoComponent
+    SolicitarArriendoComponent,
+    WikiGroupComponent 
   ],
   imports: [
     BrowserModule,

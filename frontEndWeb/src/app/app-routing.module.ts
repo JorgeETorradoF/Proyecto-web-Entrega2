@@ -13,8 +13,7 @@ import { SolicitarArriendoComponent } from './arrendatario/solicitar-arriendo/so
 import { CalificarArrendadorComponent } from './arrendatario/calificar-arrendador/calificar-arrendador.component';
 import { CalificarArrendatarioComponent } from './arrendador/calificar-arrendatario/calificar-arrendatario.component';
 import { PaginaPrincipalComponent } from './Landing-Page/pagina-principal/pagina-principal.component';
-import {DetallePropiedadArrendatarioComponent} from './arrendatario/detalle-propiedad-arrendatario/detalle-propiedad-arrendatario.component'
-
+import {DetallePropiedadArrendatarioComponent} from './arrendatario/detalle-propiedad-arrendatario/detalle-propiedad-arrendatario.component';
 
 const routes: Routes = [
   { path: '', component: PaginaPrincipalComponent },
