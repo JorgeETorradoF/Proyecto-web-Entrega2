@@ -1,21 +1,31 @@
-<div class="container">
+<app-navbar-arrendador></app-navbar-arrendador>
+<div class="background">
+  <div class="contracts-section">
     <h2>Mis Contratos</h2>
     
     <div *ngIf="contratos.length === 0; else contratosList">
-      <p>No hay contratos disponibles.</p> <!-- Mensaje si no hay contratos -->
+      <p class="no-contracts">No hay contratos disponibles.</p>
     </div>
     
     <ng-template #contratosList>
-      <div *ngFor="let contrato of contratos" class="contrato-card">
-        <p><strong>ID de Propiedad:</strong> {{ contrato.idPropiedad }}</p>
-        <p><strong>ID de Arrendatario:</strong> {{ contrato.idArrendatario }}</p>
-        <p><strong>Fecha de Inicio:</strong> {{ contrato.fechaInicio | date:'short' }}</p>
-        <p><strong>Fecha Final:</strong> {{ contrato.fechaFinal | date:'short' }}</p>
-        <p><strong>Precio:</strong> {{ contrato.precio | currency }}</p>
-        <p><strong>Estado:</strong> {{ getEstadoContrato(contrato.estado) }}</p> <!-- Mostrar estado -->
-
-        <button (click)="aceptarContrato(contrato.id)">Aceptar</button>
-        <button (click)="rechazarContrato(contrato.id)">Rechazar</button>
+      <div class="contracts-grid">
+        <div *ngFor="let contrato of contratos" class="contrato-card">
+          <div class="contrato-content">
+            <p><strong>ID de Propiedad:</strong> {{ contrato.idPropiedad }}</p>
+            <p><strong>ID de Arrendatario:</strong> {{ contrato.idArrendatario }}</p>
+            <p><strong>Fecha de Inicio:</strong> {{ contrato.fechaInicio | date:'short' }}</p>
+            <p><strong>Fecha Final:</strong> {{ contrato.fechaFinal | date:'short' }}</p>
+            <p><strong>Precio:</strong> {{ contrato.precio | currency }}</p>
+            <p><strong>Estado:</strong> {{ getEstadoContrato(contrato.estado) }}</p>
+          </div>
+          
+          <div class="button-group">
+            <button class="btn accept" (click)="aceptarContrato(contrato.id)">Aceptar</button>
+            <button class="btn reject" (click)="rechazarContrato(contrato.id)">Rechazar</button>
+          </div>
+        </div>
       </div>
     </ng-template>
+  </div>
 </div>
+<app-footer-arrendador></app-footer-arrendador>

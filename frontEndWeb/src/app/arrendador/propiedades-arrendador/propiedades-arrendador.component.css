@@ -1,60 +1,134 @@
-.container {
-    background-image: url('../../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
-    background-size: cover;  /* Cubre todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    padding: 20px;
-    color: white; /* Cambia el color del texto para que sea legible sobre la imagen */
-    min-height: 100vh; /* Asegúrate de que el contenedor tenga suficiente altura para mostrar el fondo */
-}
-
-.propiedad-card {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para legibilidad */
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    color: white; /* Color del texto dentro de la tarjeta de propiedad */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar relieve a las tarjetas */
-}
-
-h2 {
-    color: black;
-    text-align: center; /* Centra el título */
-    font-size: 2em; /* Aumenta el tamaño del título */
-    margin-bottom: 20px;
-}
-
-button {
-    margin: 10px 0;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #007bff; /* Color de fondo de los botones */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición suave al hacer hover */
-}
-
-button:hover {
-    background-color: #0056b3; /* Color de fondo de los botones al pasar el ratón */
-}
-
-button:focus {
-    outline: none; /* Quitar el borde de enfoque del botón */
-    box-shadow: 0 0 5px #0056b3; /* Sombra alrededor del botón cuando está enfocado */
-}
-
-p {
-    margin: 5px 0; /* Espaciado entre los párrafos */
-}
-
-strong {
-    font-weight: bold; /* Asegura que el texto en negrita tenga más peso */
-}
-.propiedad-imagen {
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* Ajusta la imagen para que cubra el espacio sin deformarse */
-    border-radius: 8px; /* Opcional: añade bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: añade una sombra para un mejor efecto visual */
+.background{
+    background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../assets/images/finca.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
 
+.properties-section {
+    padding: 4rem 2rem;
+  }
+
+  h2 {
+    color: #709e4c;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .add-btn {
+    background-color: #90be6d;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .add-btn:hover {
+    background-color: #7aa55c;
+  }
+
+  .no-properties {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .property-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .property-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .property-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .property-info {
+    padding: 1.5rem;
+  }
+
+  .property-info h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .property-info p {
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .button-group {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .edit-btn {
+    background-color: #709e4c;
+    color: white;
+  }
+
+  .edit-btn:hover {
+    background-color: rgb(102, 145, 69);
+  }
+
+  .view-btn {
+    background-color: #118ab2;
+    color: white;
+  }
+
+  .view-btn:hover {
+    background-color: #0f7a9d;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .properties-section{
+    animation: fadeIn 0.5s ease-out;
+  }

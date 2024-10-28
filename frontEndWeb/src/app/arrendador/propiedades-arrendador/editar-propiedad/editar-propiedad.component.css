@@ -1,33 +1,37 @@
-/* Contenedor principal con diseño moderno */
 .container-editar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  gap: 50px;
-  background-color: #f3f4f6;
+  background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../../assets/images/finca.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
-  transition: background-color 0.3s ease;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-out;
 }
 
-/* Estilo para la sección izquierda (imagen editable) */
 .left-section {
+  flex: 1;
   position: relative;
-  max-width: 350px;
-  width: 100%;
+  max-width: 500px;
+}
+
+.right-section {
+  flex: 2;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  min-width: 80vh;
 }
 
 .imagen-propiedad {
   width: 100%;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-}
-
-.left-section:hover .edit-overlay {
-  opacity: 1;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .edit-overlay {
@@ -36,158 +40,173 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 10px;
+}
+
+.edit-overlay:hover {
+  opacity: 1;
 }
 
 .edit-overlay img {
   width: 40px;
   height: 40px;
-  cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-.edit-overlay img:hover {
-  opacity: 1;
-}
-
-/* Estilo para la sección derecha (formulario) */
-.right-section {
-  flex: 2;
-  background-color: white;
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-/* Efecto visual cuando el formulario está en modo de edición */
-.form-group.editable {
-  border: 1px solid #4caf50;
-  border-radius: 8px;
-  padding: 5px;
-  background-color: #e8f5e9;
-  transition: background-color 0.3s ease, border 0.3s ease;
+  filter: brightness(0) invert(1);
 }
 
 h2 {
+  color: #709e4c;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-  font-weight: bold;
-  font-size: 28px;
 }
 
-/* Estilo para los campos del formulario */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
 .input-container {
+  position: relative;
   display: flex;
   align-items: center;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
 }
 
 input[type="text"],
 input[type="number"],
 textarea {
-  flex: 1;
-  border: none;
-  background: transparent;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #90be6d;
   outline: none;
-  font-size: 16px;
-  color: #333;
-  padding: 8px;
-  transition: background-color 0.3s ease;
 }
 
 textarea {
-  resize: none;
-  height: 80px;
+  min-height: 100px;
+  resize: vertical;
 }
 
-input:read-only,
-textarea:read-only {
-  background-color: #f0f0f0;
+input[readonly],
+textarea[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
 }
 
-/* Icono de edición */
 .edit-icon {
-  width: 48px; /* Aumentamos el tamaño del ícono */
-  height: 48px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
+  margin-left: 10px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
 .edit-icon:hover {
   opacity: 1;
 }
 
-/* Checkbox alineado */
 input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
-/* Botones */
 .botones {
   display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 button {
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-/* Botón Guardar */
 button[type="submit"] {
-  background-color: #28a745;
+  background-color: #90be6d;
   color: white;
 }
 
 button[type="submit"]:hover {
-  background-color: #218838;
+  background-color: #7aa55c;
 }
 
-/* Botón Cancelar */
 button[type="button"] {
-  background-color: #007bff;
+  background-color: #e63946;
   color: white;
 }
 
 button[type="button"]:hover {
-  background-color: #0056b3;
+  background-color: #a32833;
 }
 
-/* Adaptabilidad en pantallas pequeñas */
-@media (max-width: 768px) {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
   .container-editar {
     flex-direction: column;
-    padding: 20px;
+    align-items: center;
+  }
+
+  .left-section {
+    max-width: 100%;
   }
 
   .right-section {
     width: 100%;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-editar {
+    padding: 2rem 1rem;
   }
 
-  .botones {
-    flex-direction: column;
-    gap: 10px;
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .imagen-propiedad {
+    height: 300px;
+  }
+
+  button {
+    padding: 0.8rem 1.5rem;
   }
 }

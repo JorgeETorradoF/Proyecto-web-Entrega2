@@ -1,102 +1,104 @@
-/* Contenedor principal centrado con fondo */
 .container-detalle {
-  background-image: url('../../../../assets/images/finca.webp');
+  background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../../assets/images/finca.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  color: white;
-  position: relative;
+  padding: 5rem 2rem;
+  animation: fadeIn 0.5s ease-out;
 }
 
-/* Tarjeta con detalles de la propiedad */
 .detalle-propiedad {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-  animation: zoomIn 0.5s ease-out;
-}
-
-/* Efecto de Zoom para la tarjeta */
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
 }
 
 h2 {
-  margin-bottom: 20px;
-  color: white;
-  font-size: 24px;
+  color: #709e4c;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-/* Imagen de la propiedad */
 .detalle-imagen {
-  display: block;
-  margin: 10px auto;
-  max-width: 90%;
-  height: auto;
-  border-radius: 10px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 
-/* Estilo para los detalles */
-.detalle-propiedad p {
-  font-size: 18px;
-  margin: 5px 0;
-  color: white;
-  text-align: left;
+p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.detalle-propiedad p strong {
-  color: #f1c40f;
+strong {
+  color: #333;
+  font-weight: bold;
 }
 
-/* Contenedor para los botones */
 .botones {
   display: flex;
+  gap: 1rem;
   justify-content: center;
-  gap: 20px; /* Espacio entre los botones */
-  margin-top: 20px;
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
+  margin-top: 2rem;
 }
 
-/* Botones */
 button {
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
+  padding: 1rem 2rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 150px; /* Ancho fijo para evitar que se estiren demasiado */
 }
 
-button:hover {
-  background-color: #45a049;
+button:first-child {
+  background-color: #118ab2;
+  color: white;
 }
 
-button:nth-child(2) {
-  background-color: #2196F3;
+button:first-child:hover {
+  background-color: #0f7a9d;
 }
 
-button:nth-child(2):hover {
-  background-color: #0b7dda;
+button:last-child {
+  background-color: #709e4c;
+  color: white;
+}
+
+button:last-child:hover {
+  background-color: #5b813f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .detalle-propiedad {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .detalle-imagen {
+    height: 300px;
+  }
 }

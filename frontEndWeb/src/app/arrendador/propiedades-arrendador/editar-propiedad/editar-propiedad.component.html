@@ -1,9 +1,11 @@
+<app-navbar-arrendatario></app-navbar-arrendatario>
+
 <div class="container-editar">
   <!-- Sección de la Imagen Editable -->
   <div class="left-section">
     <img [src]="nuevaImagen || getImagenUrl(propiedad.urlImagen)" alt="Imagen de la propiedad" class="imagen-propiedad" />
     <div class="edit-overlay" (click)="triggerFileInput()">
-      <img src="../../../assets/images/editIcon.png" alt="Editar Imagen" />
+      <img src="../../../../assets/images/editIcon.png" alt="Editar Imagen" />
     </div>
     <input
       type="file"
@@ -33,7 +35,7 @@
             required
           />
           <img
-            src="../../../assets/images/editIcon.png"
+            src="../../../../assets/images/editIcon.png"
             alt="Editar"
             class="edit-icon"
             (click)="toggleEditar('nombrePropiedad')"
@@ -246,3 +248,4 @@
     </form>
   </div>
 </div>
+<app-footer-arrendador></app-footer-arrendador>

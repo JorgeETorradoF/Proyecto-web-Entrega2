@@ -25,6 +25,8 @@ import { FooterComponent } from './Landing-Page/footer/footer.component'
 import { DetallePropiedadArrendatarioComponent } from './arrendatario/detalle-propiedad-arrendatario/detalle-propiedad-arrendatario.component';
 import { SolicitarArriendoComponent } from './arrendatario/solicitar-arriendo/solicitar-arriendo.component';
 import { WikiGroupComponent } from './Landing-Page/wiki-group/wiki-group.component';
+import { NavbarArrendadorComponent } from './arrendador/navbar-arrendador/navbar-arrendador.component';
+import { FooterArrendadorComponent } from './arrendador/footer-arrendador/footer-arrendador.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { WikiGroupComponent } from './Landing-Page/wiki-group/wiki-group.compone
     FooterComponent,
     DetallePropiedadArrendatarioComponent,
     SolicitarArriendoComponent,
-    WikiGroupComponent 
+    WikiGroupComponent,
+    NavbarArrendadorComponent,
+    FooterArrendadorComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { WikiGroupComponent } from './Landing-Page/wiki-group/wiki-group.compone
     ReactiveFormsModule,
     RouterModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

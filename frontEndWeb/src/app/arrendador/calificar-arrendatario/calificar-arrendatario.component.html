@@ -1,46 +1,54 @@
-<header>
-    <div class="container">
-      <h1>ArriendaTuFinca</h1>
-      <nav>
-        <a routerLink="/">Inicio</a>
-        <a routerLink="/solicitar-arriendo" routerLinkActive="active">Solicitar Arriendo</a>
-        <a routerLink="/calificar-arrendador" routerLinkActive="active">Calificar Arrendador</a>
-      </nav>
-    </div>
-</header>
+<app-navbar-arrendador></app-navbar-arrendador>
 
-<div class="calificar-arrendatario fade-in">
+<div class="background">
+  <div class="rating-section">
     <h2>Calificar Arrendatario</h2>
 
-    <div *ngIf="arrendatariosPorCalificar.length > 0; else noSolicitudes">
-      <h3>Calificar arrendatarios:</h3>
-      <ul>
-        <li *ngFor="let arrendatario of arrendatariosPorCalificar">
-          <div class="arrendatario-info">
-            <span>{{ arrendatario.nombre }}</span>&nbsp;
-            <span>{{ arrendatario.apellido }}</span>
+    <div *ngIf="arrendatariosPorCalificar.length > 0; else noSolicitudes" class="tenants-list">
+      <div class="tenants-grid">
+        <div *ngFor="let arrendatario of arrendatariosPorCalificar" class="tenant-card">
+          <div class="tenant-info">
+            <span class="tenant-name">{{ arrendatario.nombre }} {{ arrendatario.apellido }}</span>
           </div>
-          <button (click)="calificar(arrendatario)">Calificar</button>
-        </li>
-      </ul>
+          <button class="btn rate-btn" (click)="calificar(arrendatario)">Calificar</button>
+        </div>
+      </div>
     </div>
 
     <ng-template #noSolicitudes>
-      <p>No hay arrendatarios por calificar.</p>
+      <p class="no-tenants">No hay arrendatarios por calificar.</p>
     </ng-template>
 
-    <div *ngIf="arrendatarioSeleccionado" class="formulario-calificacion">
+    <div *ngIf="arrendatarioSeleccionado" class="rating-form-container">
       <h3>Calificar a {{ arrendatarioSeleccionado.nombre }}</h3>
-      <form (ngSubmit)="enviarCalificacion()">
-        <div>
+      <form (ngSubmit)="enviarCalificacion()" class="rating-form">
+        <div class="form-group">
           <label for="calificacion">Calificación (1-5 estrellas):</label>
-          <input type="number" id="calificacion" [(ngModel)]="arrendatarioSeleccionado.calificacion" name="calificacion" min="1" max="5" required>
+          <input 
+            type="number" 
+            id="calificacion" 
+            [(ngModel)]="arrendatarioSeleccionado.calificacion" 
+            name="calificacion" 
+            min="1" 
+            max="5" 
+            required
+            class="rating-input"
+          >
         </div>
-        <div>
+        <div class="form-group">
           <label for="comentario">Comentario:</label>
-          <textarea id="comentario" [(ngModel)]="arrendatarioSeleccionado.comentario" name="comentario" rows="4" required></textarea>
+          <textarea 
+            id="comentario" 
+            [(ngModel)]="arrendatarioSeleccionado.comentario" 
+            name="comentario" 
+            rows="4" 
+            required
+            class="comment-input"
+          ></textarea>
         </div>
-        <button type="submit">Enviar Calificación</button>
+        <button type="submit" class="btn submit-btn">Enviar Calificación</button>
       </form>
     </div>
+  </div>
 </div>
+<app-footer-arrendador></app-footer-arrendador>

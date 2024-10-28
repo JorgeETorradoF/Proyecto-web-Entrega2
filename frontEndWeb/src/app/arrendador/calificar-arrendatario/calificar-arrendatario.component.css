@@ -1,99 +1,151 @@
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 0;
+.background{
+  background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../assets/images/finca.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.rating-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+h2 {
+  color: #709e4c;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.no-tenants {
+  color: #666;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.tenants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tenant-card {
+  background-color: rgba(255, 255, 255, 0.575);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tenant-card:hover {
+  transform: translateY(-5px);
+}
+
+.tenant-info {
+  flex: 1;
+}
+
+.tenant-name {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rate-btn {
+  background-color: #90be6d;
+  color: white;
+}
+
+.rate-btn:hover {
+  background-color: #7aa55c;
+}
+
+.rating-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.rating-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background-color: #90be6d;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #7aa55c;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  nav {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover, nav a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  h1{
-    color:white;
-  }
-.calificar-arrendatario {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
-  li:hover {
-    background-color: #f0f0f0;
-  }
-  .solicitud-info {
-    display: flex;
-    flex-direction: column;
-  }
-  button {
-    padding: 8px 16px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: var(--hover-color);
-  }
-  .formulario-calificacion {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  .formulario-calificacion form div {
-    margin-bottom: 15px;
-  }
-  .formulario-calificacion label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  .formulario-calificacion input,
-  .formulario-calificacion textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  .formulario-calificacion button {
-    width: 100%;
-    padding: 10px;
+}
+
+.rating-section {
+  animation: fadeIn 0.5s ease-out;
 }

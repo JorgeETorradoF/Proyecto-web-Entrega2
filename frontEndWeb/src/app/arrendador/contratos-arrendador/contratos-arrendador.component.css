@@ -1,33 +1,107 @@
-.container {
-    background-image: url('../../../assets/images/finca.webp'); /* Asegúrate de que esta ruta sea correcta */
-    background-size: cover;  /* Cubre todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    padding: 20px;
-    color: white; /* Cambia el color del texto para que sea legible sobre la imagen */
-    min-height: 100vh; /* Asegúrate de que el contenedor tenga suficiente altura para mostrar el fondo */
+.background{
+  background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../assets/images/finca.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.contracts-section {
+  padding: 4.5rem 2rem;
+  text-align: center;
+}
+
+h2 {
+  color: #709e4c;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.no-contracts {
+  color: #666;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.contracts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contrato-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contrato-card:hover {
+  transform: translateY(-5px);
+}
+
+.contrato-content p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.contrato-content strong {
+  color: #90be6d;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accept {
+  background-color: #90be6d;
+  color: white;
+}
+
+.accept:hover {
+  background-color: #7aa55c;
+}
+
+.reject {
+  background-color: #e63946;
+  color: white;
+}
+
+.reject:hover {
+  background-color: #d32f2f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .contrato-card {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para legibilidad */
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  h2{
-    color: black;
-  }
-  
-  button {
-    margin: 5px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #007bff; /* Color de fondo de los botones */
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Color de fondo de los botones al pasar el ratón */
-  }
-  
+}
+
+.contracts-section{
+  animation: fadeIn 0.5s ease-out;
+}

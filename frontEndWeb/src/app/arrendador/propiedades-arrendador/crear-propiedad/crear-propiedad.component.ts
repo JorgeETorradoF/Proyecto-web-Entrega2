@@ -18,6 +18,11 @@ interface Propiedad {
   urlImagen: string;
 }
 
+interface ImagenPreview {
+  file: File;
+  preview: string | ArrayBuffer;
+}
+
 @Component({
   selector: 'app-crear-propiedad',
   templateUrl: './crear-propiedad.component.html',
@@ -42,7 +47,9 @@ export class CrearPropiedadComponent implements OnInit {
 
   idArrendador!: number;
   selectedFile: File | null = null;
+  imagenes: ImagenPreview[] = [];
   imagenSeleccionada: string | ArrayBuffer | null = null;
+  maxImagenes = 5;
 
   constructor(
     private propiedadesService: PropiedadesService,
@@ -137,4 +144,15 @@ export class CrearPropiedadComponent implements OnInit {
     this.imagenSeleccionada = null;
     this.selectedFile = null;
   }
+
+  cancelar() {
+    if (confirm('¿Está seguro que desea cancelar? Los cambios no guardados se perderán.')) {
+      this.router.navigate([`/arrendador/${this.idArrendador}/propiedades`]);
+    }
+  }
+
+  removeImage(index: number) {
+    this.imagenes.splice(index, 1);
+  }
+
 }
