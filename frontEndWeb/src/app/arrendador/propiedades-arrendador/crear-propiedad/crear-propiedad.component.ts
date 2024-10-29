@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropiedadesService } from '../../../services/propiedades.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import departamentosData from '../../../../assets/colombia.json';
 
 interface Propiedad {
   id: number;
@@ -40,6 +41,10 @@ export class CrearPropiedadComponent implements OnInit {
     urlImagen: ''
   };
 
+  departamentos: any[] = [];
+  municipiosFiltrados: string[] = [];
+  departamentoSeleccionado: string = '';
+
   idArrendador!: number;
   selectedFile: File | null = null;
   imagenSeleccionada: string | ArrayBuffer | null = null;
@@ -53,9 +58,9 @@ export class CrearPropiedadComponent implements OnInit {
   ngOnInit() {
     this.propiedadesService.setIp('localhost');
     this.idArrendador = +this.route.snapshot.paramMap.get('idArrendador')!;
+    this.departamentos = departamentosData;
   }
 
-  // Método para seleccionar el archivo
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
     if (this.selectedFile) {
@@ -66,6 +71,22 @@ export class CrearPropiedadComponent implements OnInit {
       reader.readAsDataURL(this.selectedFile);
     }
     console.log('Archivo seleccionado:', this.selectedFile);
+  }
+
+  // Método para cargar municipios desde el JSON de assets
+    cargarMunicipios(): void {
+    const departamento = this.departamentos.find(
+      (d) => d.departamento.trim().toLowerCase() === this.departamentoSeleccionado.trim().toLowerCase()
+    );
+
+    if (departamento) {
+      this.municipiosFiltrados = departamento.ciudades;
+      console.log('Municipios filtrados:', this.municipiosFiltrados);
+      this.propiedad.departamento = this.departamentoSeleccionado; // Asigna el departamento seleccionado a la propiedad
+    } else {
+      console.warn('No se encontró el departamento seleccionado.');
+      this.municipiosFiltrados = [];
+    }
   }
 
   // Método para crear una propiedad nueva
@@ -90,7 +111,6 @@ export class CrearPropiedadComponent implements OnInit {
     const formData = new FormData();
     formData.append('imagen', this.selectedFile);
 
-    // Inicializa los campos booleanos si no están seleccionados
     this.propiedad.permiteMascotas = this.propiedad.permiteMascotas || false;
     this.propiedad.tienePiscina = this.propiedad.tienePiscina || false;
     this.propiedad.tieneAsador = this.propiedad.tieneAsador || false;
@@ -108,8 +128,7 @@ export class CrearPropiedadComponent implements OnInit {
       permiteMascotas: this.propiedad.permiteMascotas ? this.propiedad.permiteMascotas.toString() : 'false',
       tienePiscina: this.propiedad.tienePiscina ? this.propiedad.tienePiscina.toString() : 'false',
       tieneAsador: this.propiedad.tieneAsador ? this.propiedad.tieneAsador.toString() : 'false',
-   };
-
+    };
 
     formData.append('propiedadDTO', new Blob([JSON.stringify(propiedadDTO)], { type: "application/json" }));
 
@@ -126,13 +145,10 @@ export class CrearPropiedadComponent implements OnInit {
     );
   }
 
-
-  // Método que se invocará al enviar el formulario
   onSubmit() {
     this.crearPropiedad();
   }
 
-  // Método para cambiar la imagen seleccionada
   cambiarImagen() {
     this.imagenSeleccionada = null;
     this.selectedFile = null;
