@@ -309,6 +309,87 @@
         <hr>
     
         <!-- Continuar con el resto de las secciones (BackEnd, ControladorArrendador.java, etc.) -->
+        <section>
+            <h2>Pruebas de Backend</h2>
+            <p>
+                Las pruebas en el backend aseguran que los controladores, servicios y repositorios de la aplicación funcionen correctamente. Estas pruebas cubren la lógica de negocio, el acceso a la base de datos y la comunicación adecuada con el frontend.
+            </p>
+            <h3>Descripción General de las Pruebas de Backend</h3>
+            <p>
+                <strong>Objetivo:</strong> Garantizar la funcionalidad y robustez de los servicios del backend, asegurando que cada endpoint responda de manera correcta a los tipos de solicitud esperados.
+            </p>
+            <p>
+                <strong>Tecnología:</strong> Utilizamos <em>JUnit</em> para pruebas unitarias y <em>MockMVC</em> para simular peticiones HTTP en Spring Boot.
+            </p>
+        
+            <h3>Tipos de Pruebas Realizadas</h3>
+            <ul>
+                <li><strong>Pruebas Unitarias:</strong> Abarcan pruebas individuales para métodos y servicios, asegurando que cada unidad funcione como se espera.</li>
+                <li><strong>Pruebas de Integración:</strong> Verifican que diferentes módulos y componentes funcionen correctamente al interactuar entre sí, especialmente entre servicios y repositorios.</li>
+                <li><strong>Pruebas de API (Controladores):</strong> Validan las respuestas de los endpoints, verificando los códigos de respuesta y respuestas a entradas válidas e inválidas.</li>
+            </ul>
+        
+            <h3>Estructura de una Prueba de Controlador (Ejemplo)</h3>
+            <pre><code>
+        &#64;Test
+        public void testGetPropiedad() throws Exception &#123;
+            mockMvc.perform(get("/api/arrendador/propiedades/&#123;id&#125;", 1))
+                   .andExpect(status().isOk())
+                   .andExpect(jsonPath("$.id").value(1))
+                   .andExpect(jsonPath("$.nombre").value("Propiedad de ejemplo"));
+        &#125;
+            </code></pre>
+        
+            <h3>Cobertura y Resultados Esperados</h3>
+            <p>
+                Cada prueba incluye un resumen de los resultados esperados y la cobertura obtenida, garantizando que todas las funciones críticas fueron probadas.
+            </p>
+        </section>
+        
+        <hr>
+        
+        <section>
+            <h2>Pruebas de Frontend</h2>
+            <p>
+                Las pruebas en el frontend aseguran la correcta visualización, funcionalidad y comportamiento de la interfaz de usuario. Estas pruebas verifican tanto la lógica en los componentes como la interacción con la interfaz a través de simulaciones de usuario.
+            </p>
+        
+            <h3>Descripción General de las Pruebas de Frontend</h3>
+            <p>
+                <strong>Objetivo:</strong> Validar que la interfaz de usuario sea funcional y que la interacción con los componentes y rutas ocurra sin errores visibles.
+            </p>
+            <p>
+                <strong>Tecnología:</strong> Se emplean <em>Jasmine</em> y <em>Karma</em> para pruebas unitarias de componentes, y <em>Protractor</em> para pruebas de extremo a extremo (E2E).
+            </p>
+        
+            <h3>Tipos de Pruebas Realizadas</h3>
+            <ul>
+                <li><strong>Pruebas Unitarias de Componentes:</strong> Aseguran que la lógica y el comportamiento individual de cada componente sean correctos.</li>
+                <li><strong>Pruebas de Integración:</strong> Validan la interacción entre componentes y servicios en el frontend.</li>
+                <li><strong>Pruebas de Extremo a Extremo (E2E):</strong> Emulan el flujo de usuario y verifican que las funcionalidades principales estén disponibles y funcionen según lo esperado.</li>
+            </ul>
+        
+            <h3>Estructura de una Prueba de Componente (Ejemplo)</h3>
+            <pre><code>
+        it('debería mostrar el título correcto', () => &#123;
+            const fixture = TestBed.createComponent(PrincipalArrendadorComponent);
+            fixture.detectChanges();
+            const compiled = fixture.nativeElement;
+            expect(compiled.querySelector('h1').textContent).toContain('Bienvenido, Arrendador');
+        &#125;);
+            </code></pre>
+        
+            <h3>Cobertura y Resultados Esperados</h3>
+            <p>
+                <strong>Cobertura:</strong> Un porcentaje adecuado de cobertura de pruebas garantiza que las partes críticas de la aplicación estén validadas.
+            </p>
+            <p>
+                <strong>Resultados Esperados:</strong> Cada prueba incluye la expectativa, el valor esperado y la salida en caso de éxito o error.
+            </p>
+        </section>
+        
+        <hr>
+        
     </div>
     
 </section>
