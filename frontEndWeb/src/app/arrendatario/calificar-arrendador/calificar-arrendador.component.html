@@ -1,17 +1,7 @@
-<header>
-    <div class="container">
-      <h1>ArriendaTuFinca</h1>
-      <nav>
-        <a (click)="navigateToPrincipal()">Inicio</a>
-        <a (click)="navigateToVerContratos()">Ver Contratos</a>
-        <a (click)="navigateToCalificar()">Calificar Arrendador</a>
-      </nav>
-    </div>
-</header>
+<app-navbar-arrendatario></app-navbar-arrendatario>
 <div class="calificar-arrendatario fade-in">
-    <h2>Calificar Arrendatario</h2>
+    <h2>Calificar Arrendadores: </h2>
     <div *ngIf="arrendadoresPorCalificar.length > 0; else noSolicitudes">
-      <h3>Calificar arrendadores:</h3>
       <ul>
         <li *ngFor="let arrendador of arrendadoresPorCalificar">
           <div class="arrendador-info">
@@ -23,7 +13,10 @@
       </ul>
     </div>
     <ng-template #noSolicitudes>
-      <p>No hay arrendadores por calificar.</p>
+      <div class="ojo">
+      <p>No hay arrendadores por calificar.</p>        
+      </div>
+
     </ng-template>
   
     <div *ngIf="arrendadorSeleccionado" class="formulario-calificacion">
@@ -41,3 +34,4 @@
       </form>
     </div>
   </div>
+<app-footer-arrendatario></app-footer-arrendatario>

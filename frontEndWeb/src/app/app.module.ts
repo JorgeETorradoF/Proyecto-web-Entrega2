@@ -28,6 +28,8 @@ import { WikiGroupComponent } from './Landing-Page/wiki-group/wiki-group.compone
 import { NavbarArrendadorComponent } from './arrendador/navbar-arrendador/navbar-arrendador.component';
 import { FooterArrendadorComponent } from './arrendador/footer-arrendador/footer-arrendador.component';
 import { PrincipalArrendadorComponent } from './arrendador/principal-arrendador/principal-arrendador.component';
+import { NavbarArrendatarioComponent } from './arrendatario/navbar-arrendatario/navbar-arrendatario.component';
+import { FooterArrendatarioComponent } from './arrendatario/footer-arrendatario/footer-arrendatario.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { PrincipalArrendadorComponent } from './arrendador/principal-arrendador/
     WikiGroupComponent,
     FooterArrendadorComponent,
     PrincipalArrendadorComponent,
-    NavbarArrendadorComponent
+    NavbarArrendadorComponent,
+    NavbarArrendatarioComponent,
+    FooterArrendatarioComponent
   ],
   imports: [
     BrowserModule,

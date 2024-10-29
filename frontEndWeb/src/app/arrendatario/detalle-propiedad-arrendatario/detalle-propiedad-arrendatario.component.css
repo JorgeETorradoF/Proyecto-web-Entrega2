@@ -1,124 +1,109 @@
-:root {
-  --primary-color: #3498db;
-  --hover-color: #2980b9;
-  --background-color: #f4f4f4;
-  --text-color: #333;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-}
-
 .container-detalle {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-in-out;
+  background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../assets/images/finca.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .detalle-propiedad {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 30px;
-  align-items: center;
-  margin-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+h2 {
+  color: #709e4c;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .detalle-imagen {
   width: 100%;
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-h2 {
-  color: var(--primary-color);
-  margin-bottom: 10px;
+.detalle-imagen:hover {
+  transform: scale(1.02);
 }
 
 p {
-  margin: 8px 0;
+  color: #666;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
-  font-size: 16px;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+p:hover {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+strong {
+  color: #333;
+  font-weight: bold;
+  min-width: 200px;
+  display: inline-block;
 }
 
 .botones {
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 3rem;
 }
 
 button {
-  background-color: var(--primary-color);
-  color: white;
+  padding: 1.2rem 2.5rem;
   border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  background-color: #90be6d;
+  color: white;
+  box-shadow: 0 4px 12px rgba(144, 190, 109, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 button:hover {
-  background-color: var(--hover-color);
+  background-color: #7aa55c;
   transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(144, 190, 109, 0.3);
 }
 
 button:active {
   transform: translateY(0);
 }
 
-/*-----------------HEADER--------------*/
-header {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 1rem 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-nav a:hover, nav a.active {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-h1{
-  color:white;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -126,13 +111,76 @@ h1{
   }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
+  .container-detalle {
+    padding: 2rem 1rem;
+  }
+
   .detalle-propiedad {
-    grid-template-columns: 1fr;
-    text-align: center;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .detalle-imagen {
-    margin: 0 auto;
+    height: 300px;
+    margin-bottom: 1.5rem;
   }
+
+  p {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  strong {
+    min-width: auto;
+    margin-bottom: 0.3rem;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+}
+
+/* Animaciones adicionales */
+.detalle-propiedad {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para valores booleanos */
+p:nth-last-child(-n+3) {
+  display: flex;
+  align-items: center;
+}
+
+p:nth-last-child(-n+3)::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+p:nth-last-child(-n+3):has(+ p:contains('Sí'))::after {
+  background-color: #90be6d;
 }

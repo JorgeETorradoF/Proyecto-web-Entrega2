@@ -1,99 +1,197 @@
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 0;
+.calificar-arrendatario {
+  background-image: linear-gradient(rgba(76, 175, 79, 0.212), rgba(76, 175, 79, 0.027)), url('../../../assets/images/finca.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 4rem;
+}
+
+h2 {
+  color: #709e4c;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: white;
+  font-size: 1.8rem;
+  margin: 1.5rem 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+li {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.arrendador-info {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.ojo{
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 600px;
+  font-size: 1rem;
+  color: #666;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background: #5f4041;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #3a2728;
+  transform: translateY(-2px);
+}
+
+.formulario-calificacion {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.formulario-calificacion h3 {
+  color: #333;
+  text-shadow: none;
+  margin-bottom: 1.5rem;
+}
+
+form div {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+input[type="number"] {
+  width: 97%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+textarea {
+  width: 97%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 120px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #118ab2;
+}
+
+form button {
+  width: 100%;
+  padding: 1rem;
+  background: #90be6d;
+  margin-top: 1rem;
+}
+
+form button:hover {
+  background: #7aa55c;
+}
+
+/* Mensaje cuando no hay arrendadores por calificar */
+#noSolicitudes {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 600px;
+  font-size: 1.2rem;
+  color: #666;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calificar-arrendatario {
+    padding: 1rem;
   }
-  
-  nav {
-    display: flex;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  li {
+    flex-direction: column;
+    text-align: center;
     gap: 1rem;
   }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover, nav a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  h1{
-    color:white;
-  }
-.calificar-arrendatario {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
-  li:hover {
-    background-color: #f0f0f0;
-  }
-  .solicitud-info {
-    display: flex;
-    flex-direction: column;
-  }
-  button {
-    padding: 8px 16px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: var(--hover-color);
-  }
+
   .formulario-calificacion {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin: 1rem;
+    padding: 1.5rem;
   }
-  .formulario-calificacion form div {
-    margin-bottom: 15px;
-  }
-  .formulario-calificacion label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  .formulario-calificacion input,
-  .formulario-calificacion textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  .formulario-calificacion button {
-    width: 100%;
-    padding: 10px;
 }

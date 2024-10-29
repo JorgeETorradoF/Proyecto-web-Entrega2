@@ -1,11 +1,4 @@
-<header>
-<h1>ArriendaTuFinca</h1>
-    <nav>
-      <a (click)="navigateToPrincipal()">Inicio</a>
-      <a (click)="navigateToVerContratos()">Ver Contratos</a>
-      <a (click)="navigateToCalificar()">Calificar Arrendador</a>
-    </nav>
-</header>
+<app-navbar-arrendatario></app-navbar-arrendatario>
 <div class="container">
     <h2>Mis Contratos</h2>
     
@@ -14,13 +7,18 @@
     </div>
     
     <ng-template #contratosList>
-      <div *ngFor="let contrato of contratos" class="contrato-card">
-        <p><strong>ID de Propiedad:</strong> {{ contrato.idPropiedad }}</p>
-        <p><strong>ID de Arrendatario:</strong> {{ contrato.idArrendatario }}</p>
-        <p><strong>Fecha de Inicio:</strong> {{ contrato.fechaInicio | date:'short' }}</p>
-        <p><strong>Fecha Final:</strong> {{ contrato.fechaFinal | date:'short' }}</p>
-        <p><strong>Precio:</strong> {{ contrato.precio | currency }}</p>
-        <p><strong>Estado:</strong> {{ getEstadoContrato(contrato.estado) }}</p> <!-- Mostrar estado -->
+      <div class="ojo">         
+        <div *ngFor="let contrato of contratos" class="contrato-card">
+          <p><strong>ID de Propiedad:</strong> {{ contrato.idPropiedad }}</p>
+          <p><strong>ID de Arrendatario:</strong> {{ contrato.idArrendatario }}</p>
+          <p><strong>Fecha de Inicio:</strong> {{ contrato.fechaInicio | date:'short' }}</p>
+          <p><strong>Fecha Final:</strong> {{ contrato.fechaFinal | date:'short' }}</p>
+          <p><strong>Precio:</strong> {{ contrato.precio | currency }}</p>
+          <p><strong>Estado:</strong> {{ getEstadoContrato(contrato.estado) }}</p> <!-- Mostrar estado -->
+        </div>
       </div>
+
+
     </ng-template>
 </div>
+<app-footer-arrendatario></app-footer-arrendatario>
